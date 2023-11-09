@@ -2,30 +2,29 @@
 .hero {
     position: fixed;
     top: 0;
-    left: 0;
     color: #0a0a0a;
     overflow: hidden;
     width: 100%;
-    height: auto;
+    height: 5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--color-bg-parimary);
     border-bottom: 1px dashed rgba(256, 256, 256, .2);
-    padding: 0px 4vw;
+    padding: 3rem 2rem;
     z-index: 998;
 }
 
-.logo {
-    font-size: 2rem;
-    font-weight: 900;
+.logo:nth-child(1) {
+    font-size: 3rem;
+    font-weight: 700;
     letter-spacing: 2px;
     transition: .5s;
-    color: #101010;
+    color: #fff;
+    cursor: pointer;
 }
 
-.logo span {
-    color: white;
+.logo:nth-child(1):hover {
+    color: #0a0a0a;
 }
 
 .ham-button {
@@ -34,8 +33,8 @@
     right: 15px;
     top: 15px;
     display: none;
-    font-size: 1.8rem;
-    margin-top: 8px;
+    font-size:2.4rem;
+    margin-top: 35px;
     color: var(--color-white);
     background: var(--color-bg-parimary);
 }
@@ -54,6 +53,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     cursor: pointer;
+    font-size: 3.5rem;
 }
 
 .nav-links .links {
@@ -108,7 +108,6 @@ ul li {
 
 @media (max-width:320px) {
     .logo {
-
         font-size: 1.5rem;
     }
 
@@ -126,8 +125,7 @@ ul li {
     .ham-button {
         display: flex;
         z-index: 999;
-        margin: -7px 0px 0px -7px;
-        font-size: 1.8rem;
+        font-size: 2.4rem;
     }
 
     .left {
@@ -161,8 +159,6 @@ ul li {
 
     .btn-gurup button {
         padding: 8px 12px;
-        /* margin: 12px 0; */
-        /* margin-right: 20px; */
     }
 
 
@@ -180,38 +176,28 @@ ul li {
     .hero a {
         margin-left: -20px;
     }
-
-    .about_me {
-        padding: 14px 45px;
-        flex-direction: column;
-        gap: 0px;
-        height: 100vh;
-    }
-
 }
 
 @media (max-width: 900px) {
-
+    .hero {
+        margin-top: -28px;
+        height: auto;
+    }
 
     .ham-button {
         display: flex;
         z-index: 999;
+       
     }
 
     .ham_menu {
         display: block;
     }
 
-    /* .ham_close {
-        display: none;
-    } */
-
     .nav-links {
         display: none;
         height: 100vh;
         width: 100%;
-
-
     }
 
     .hero {
@@ -271,49 +257,6 @@ ul li {
     p:nth-child(1) {
         font-size: 1rem;
         font-family: 'Times New Roman', Times, serif;
-    }
-
-
-    /* about page  */
-    .about_me {
-        padding: 14px 45px;
-    }
-
-    .my-works {
-        padding: 25px 45px;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-
-    }
-
-    .project {
-        padding: 14px 45px;
-    }
-
-
-    .blog-container .post-container {
-        align-items: center;
-        justify-content: center;
-    }
-
-    footer p:nth-child(1) {
-        text-align: center;
-        margin: 0px 18px;
-        font-size: 1.2rem;
-    }
-
-    .form-container {
-        flex-direction: column;
-
-    }
-
-    .my-img {
-        display: none;
-    }
-
-    .form-box {
-        width: 100%;
     }
 
 }

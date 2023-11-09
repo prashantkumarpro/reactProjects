@@ -1,94 +1,103 @@
-/* about section start  */
+
 #about {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 854px;
-  margin: -60px 0px 60px;
-  padding: 1rem;
-  color: var(--color-white);
   overflow: hidden;
+  background-color: #FFFFFF;
 }
 
 .about_me {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row-reverse;
-  overflow: hidden;
-  gap: 80px;
-  padding-top:8rem;
-}
-
-.about_me .right {
-  height: 100%;
+  justify-content: space-between;
 
 }
 
-.about_me .right img {
+.about_me .box {
+  position: relative;
+  width: 50%;
+  height: 100vh;
+
+}
+
+
+.about_me .box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
 }
 
-.about_me .left {
-  padding: 0px 60px;
-  color: #101010;
-  width: 683px;
-  height: 486px;
+.about_me #intro {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: #101010;
+  padding: 0 2vw;
 
 }
 
+.about_me #intro h2 {
+  font-size: .8rem;
+  letter-spacing: 1.6px;
+  color: #EF233C;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
 
-#about h2 {
-  font-size: 2.5rem;
+.about_me #intro h1 {
+  font-size: 4.5vw;
   color: #414141;
+  margin: 10px 0 10px;
+}
+
+.about_me #intro p {
+  font-stretch: ultra-condensed;
+  padding: 1rem 0;
+  line-height: 1.4;
+  font-size: 1rem;
+  margin: -8px 0 0px;
+  color: #798385;
+  font-weight: 500;
+}
+
+.about_me #intro .cv-btn a {
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  padding: 15px 25px;
+  background-color: #EF233C;
+  color: #fff;
+  cursor: pointer;
+  margin: -8px 0 0;
+  font-size: 0.7rem;
+
 
 }
 
-#about p {
-  font-size: 1.2rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  margin: 0 0 16px;
-  color: #797979;
+.about_me #intro .cv-btn a:hover {
+  background-color: white;
+  color: red;
+  border: 1.1px solid #EF233C;
 
 }
 
-@media (max-width:986px) {
-  .hero a {
-    margin-left: -20px;
+
+/* for mobile devices  */
+
+
+@media (max-width:600px) {
+  .about_me {
+    margin-top: 8vh;
+    flex-direction: column;
+    padding: 0 1vw;
   }
 
-  .about_me {
-    padding: 14px 45px;
-    flex-direction: column;
-    gap: 0px;
+  .about_me .box {
+    width: 100%;
     height: 100vh;
   }
-
-}
-
-@media (max-width:900px) {
-  .about_me {
-    padding: 14px 45px;
-  }
-
-}
-@media (max-width:500px) {
-
-  .about_me .left {
-    width: 100%;
-    height: 100%;
-    padding: 30px 0px;
-}
-
-
+ .about_me #intro{
+  padding: 5vw 2vw;
+ }
 }

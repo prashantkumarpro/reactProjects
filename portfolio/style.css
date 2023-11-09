@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+*::selection {
+  color: crimson;
+  background-color: #0f0f0f;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+
+}
+
+:root {
+  /* colors  */
+  --color-parimary: #25ab75;
+  --color-parimary-dark: #208c61;
+  --color-bg-parimary: linear-gradient(rgba(239, 35, 60, 0.95), rgba(239, 35, 60, .95));
+  --color-bg-secondary: #0f0f0f;
+  --color-bg-secondary2: #0a0a0a;
+  --color-bg-footer: #151515;
+  --color-white: #ffffff;
+  --color-text: #676767;
+  --color-border: #373737;
+}
+
+.cursor {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #5FADC3;
+  position: absolute;
+  z-index: 9;
+  transform: translate(-50%, -50%) scale(0);
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
+
+/* header start  */
+.hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #0a0a0a;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-bg-parimary);
+  border-bottom: 1px dashed rgba(256, 256, 256, .2);
+
+
+}
+
+.logo {
+  margin-left: 32px;
+  font-size: 45px;
+  /* line-height: 0; */
+  font-weight: 800;
+  letter-spacing: 2px;
+  transition: .5s;
+  color: #101010;
+
+}
+
+.logo span {
+  color: white;
+}
+
+.ham-button {
+  position: absolute;
+  padding: 18px 18px;
+  right: 15px;
+  top: 15px;
+  display: none;
+  font-size: 2.3rem;
+  color: var(--color-white);
+  background: var(--color-bg-parimary);
+}
+
+.ham_menu {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.ham_close {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+
+}
+
+.nav-links .links {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+ul li {
+  list-style: none;
+  padding: 12px 18px;
+
+}
+
+.hero a .active {
+  color: #0a0a0a;
+
+}
+
+.hero a {
+  display: block;
+  color: var(--color-white);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.hero .active {
+  color: #151515;
+}
+
+.hero a:hover {
+  color: #151515;
+}
+
+/* header close  */
+
+
