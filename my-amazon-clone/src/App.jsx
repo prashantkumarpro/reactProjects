@@ -1,16 +1,13 @@
 
-import { ProductList } from './components/ProductList'
+import { ProductList } from './components/ProductList/ProductList';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
 
 
   return (
     <>
-
-      <header className="App-header">
-        <h1>My Amazon Clone</h1>
-        <p>Hello, Welcome in this world</p>
-      </header>
+      <Navbar />
       <main>
         <ProductList />
       </main>
