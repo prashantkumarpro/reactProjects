@@ -1,48 +1,61 @@
 import React from 'react'
 import './Navbar.css'
-import logo from './logo.jpg'
+import logo from './amazon_logo.png'
 const Navbar = () => {
     return (
         <>
 
-            <header>
 
-                <nav>
-                    <div className="left">
-                        <div className="logo">
-                            <img src={logo} alt="" />
+
+            <nav>
+                <div className="left">
+                    <div className="nav-logo border">
+                        <img src={logo} alt="" />
+                    </div>
+                    <div className="nav-location">
+                        <div className="locatin-icon">
+                            <i class="ri-map-pin-line"></i>
                         </div>
-                        <div className="nav-location">
-                            <div className="locatin"></div>
-                            <div className="address">
-                                <p>Divliver to Prashant</p>
-                                <p>Purnia 853204</p>
-                            </div>
+                        <div className="address">
+                            <span className='line-1'>Divliver to Prashant</span>
+                            <span className='line-2'>Purnia 853204</span>
                         </div>
                     </div>
-                    <div className="nav-search">
-                        <select name="" id="">
-                            <option value="All">All</option>
+                </div>
+
+                <div className="nav-search">
+                    <select>
+                        <option>All</option>
+                    </select>
+                    <input type="text" />
+                    <div className="search-box">
+                        <i class="ri-search-line"></i>
+                    </div>
+                </div>
+
+                <div className="right">
+                    <div className="country">
+                        India
+                    </div>
+                    <div className="account-types">
+                        <span className='line-1'>Hello,Prashant</span>
+                        <select className='line-2'>
+                            <option>Account & List type</option>
                         </select>
-                        <input type="text" />
-                        <input type="button" value="submit" />
                     </div>
-                    <div className="right">
-                        <div className="country"></div>
-                        <div className="account-types">
-                            <p>Hello,Prashant</p>
-                           <select name="" id="">Account & List type
-                           <option value=""></option>
-                           <option value=""></option>
-                           <option value=""></option>
-                           </select>
-                        </div>
-                        <div className="nav-order"></div>
-                        <div className="nav-cart"></div>
-                    </div>
-                </nav>
 
-            </header >
+                    <div className="nav-order">
+                        <span className='line-1'>Returns</span>
+                        <span className='line-2'>& Oreder</span>
+                    </div>
+                    <div className="nav-cart">
+                        <span className="icon"><i class="ri-shopping-cart-line"></i></span>
+                        <span className='cart'>Cart</span>
+                    </div>
+                </div>
+            </nav>
+
+
         </>
     )
 }
