@@ -49,7 +49,10 @@ const Navbar = () => {
                         <span className='line-2'>& Oreder</span>
                     </div>
                     <div className="nav-cart">
-                        <span className="icon"><i class="ri-shopping-cart-line"></i></span>
+
+                        <span className="icon">
+                            <div className="number-of-item">0</div>
+                            <i class="ri-shopping-cart-line"></i></span>
                         <span className='cart'>Cart</span>
                     </div>
                 </div>

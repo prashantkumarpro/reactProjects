@@ -41,7 +41,7 @@ nav .left {
     justify-content: center;
     align-items: center;
     gap: 5px;
- 
+
 }
 
 nav .left .nav-location {
@@ -98,7 +98,7 @@ nav .nav-search select {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     cursor: pointer;
-
+    padding: 0px 5px;
 }
 
 input[type="text"] {
@@ -140,19 +140,27 @@ nav .right {
 nav .right .account-types {
     margin: 0 auto;
 }
-nav .right .nav-cart{
+
+nav .right .nav-cart {
     display: flex;
     align-items: center;
     justify-content: center;
- 
+
 }
 
-nav .right .nav-cart .icon{
+nav .right .nav-cart .icon {
     font-size: 2.4rem;
     font-weight: normal;
 }
-nav .right .nav-cart .cart{
+
+nav .right .nav-cart .cart {
     margin-bottom: -10px;
     font-size: 0.8rem;
     font-weight: normal;
+}
+
+.number-of-item {
+    padding: 0px 0px;
+    font-size: 12px;
+    color: #F3A847;
 }
