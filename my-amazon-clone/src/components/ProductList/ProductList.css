@@ -15,24 +15,23 @@ section {
     background-color: rebeccapurple;
     grid-template-columns: .2fr 1fr;
 }
-.grid .filter{
+
+.grid .filter {
     background-color: red;
 }
-.grid .product-grid{
-    background-color:#3f3f3f;
+
+.grid .product-grid {
+    background-color: #3f3f3f;
 }
 
-/* section ul {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    width: 100%;
-    height: 100vh;
-    gap: 20px;
+.grid ul {
+    padding: 20px;
 
-} */
+    display: grid;
+    grid-template-columns: .3fr 1fr;
+    gap: 10px;
+
+}
 
 section ul .box {
     position: relative;
