@@ -1,4 +1,18 @@
 nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+}
+
+
+.nav-part1 {
     width: 100%;
     background-color: #131921;
     display: flex;
@@ -8,11 +22,8 @@ nav {
     overflow: hidden;
     color: #fff;
     height: 60px;
-    position: fixed;
-    top: 0;
-    left: 0;
     font-family: Arial, Helvetica, sans-serif;
-    z-index: 99;
+
 }
 
 /* .border {
@@ -20,23 +31,23 @@ nav {
  
 } */
 
-nav .left .nav-logo {
+.nav-part1 .left .nav-logo {
     height: 150px;
     width: 120px;
 }
 
-nav .left .nav-logo:hover {
+.nav-part1 .left .nav-logo:hover {
     border: 1.5px solid rgb(174, 171, 171);
     cursor: pointer;
 }
 
-nav .left .nav-logo img {
+.nav-part1 .left .nav-logo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-nav .left {
+.nav-part1 .left {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,19 +55,19 @@ nav .left {
 
 }
 
-nav .left .nav-location {
+.nav-part1 .left .nav-location {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-nav .line-1 {
+.nav-part1 .line-1 {
     font-size: 0.79rem;
     color: #cccccc;
 
 }
 
-nav .line-2 {
+.nav-part1 .line-2 {
     border: none;
     background-color: #131921;
     font-size: 0.9rem;
@@ -69,25 +80,25 @@ nav .line-2 {
     cursor: pointer;
 }
 
-nav .left .nav-location .locatin-icon {
+.nav-part1 .left .nav-location .locatin-icon {
     margin-top: 8px;
 }
 
-nav .left .nav-location .address {
+.nav-part1 .left .nav-location .address {
     margin-right: 2px;
 
 }
 
 
 
-nav .nav-search {
+.nav-part1 .nav-search {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 620px;
 }
 
-nav .nav-search select {
+.nav-part1 .nav-search select {
     border: none;
     font-size: 14px;
     width: 72px;
@@ -109,7 +120,7 @@ input[type="text"] {
 
 }
 
-nav .search-box {
+.nav-part1 .search-box {
     width: 52px;
     height: 40px;
     display: flex;
@@ -124,12 +135,12 @@ nav .search-box {
     cursor: pointer;
 }
 
-nav span {
+.nav-part1 span {
     display: block;
 
 }
 
-nav .right {
+.nav-part1 .right {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -137,23 +148,23 @@ nav .right {
     gap: 20px;
 }
 
-nav .right .account-types {
+.nav-part1 .right .account-types {
     margin: 0 auto;
 }
 
-nav .right .nav-cart {
+.nav-part1 .right .nav-cart {
     display: flex;
     align-items: center;
     justify-content: center;
 
 }
 
-nav .right .nav-cart .icon {
+.nav-part1 .right .nav-cart .icon {
     font-size: 2.4rem;
     font-weight: normal;
 }
 
-nav .right .nav-cart .cart {
+.nav-part1 .right .nav-cart .cart {
     margin-bottom: -10px;
     font-size: 0.8rem;
     font-weight: normal;
@@ -163,4 +174,55 @@ nav .right .nav-cart .cart {
     padding: 0px 0px;
     font-size: 12px;
     color: #F3A847;
+}
+
+/* start nav-part2  */
+
+.nav-part2 {
+    background-color: #232F3E;
+    width: 100%;
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    color: #fff;
+    align-items: center;
+    list-style: none;
+    text-decoration: none;
+    padding: 20px;
+}
+
+a {
+    color: #fff;
+}
+
+.nav-part2 .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+  
+}
+.nav-part2 .left i{
+    font-size: 1.5rem;
+
+}
+
+.nav-part2 .shop-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-part2 .right {
+    text-decoration: none;
+    color: #fff;
+
+}
+
+.nav-part2 .right .right-con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
