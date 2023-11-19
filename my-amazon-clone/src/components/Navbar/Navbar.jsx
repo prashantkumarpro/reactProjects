@@ -1,6 +1,9 @@
 import React from 'react'
 import './Navbar.css'
 import logo from './amazon_logo.png'
+import { Link } from 'react-router-dom'
+
+
 const Navbar = () => {
     return (
         <>
@@ -64,20 +67,22 @@ const Navbar = () => {
                     </div>
                     <div className="shop-container">
                         <ul className="shop-link">
-                            <li> <a href="#"> Amazon miniTV </a></li>
-                            <li> <a href="#"> Prime </a></li>
-                            <li> <a href="#"> Sell </a></li>
-                            <li> <a href="#"> Amazon Pay </a></li>
-                            <li> <a href="#"> Subscrive And Save </a></li>
-                            <li> <a href="#"> Buy Again </a></li>
-                            <li> <a href="#"> Cupon </a></li>
-                            <li> <a href="#"> Gift Card </a></li>
+                            <li> <Link to="/Mobile"> Mobile</Link></li>
+                            <li> <Link to="prime"> Prime</Link></li>
+                            <li> <Link> Prime</Link></li>
+                            <li> <Link> Amazon miniTV</Link></li>
+                            <li> <Link> Sell</Link></li>
+                            <li> <Link> Amazon Pay</Link></li>
+                            <li> <Link> Subscrive And Save</Link></li>
+                            <li> <Link> Buy Again</Link></li>
+                            <li> <Link> Cupon</Link></li>
+                            <li> <Link> Gift Card</Link></li>
                         </ul>
                     </div>
                     <div className="right">
                         <ul className='right-con'>
-                            <li><a href="#">New Launches from Mobile,</a></li>
-                            <li><a href="#">Electronics & more</a></li>
+                            <li><Link>New Launches from Mobile,</Link></li>
+                            <li><Link>Electronics & more</Link></li>
                         </ul>
 
 
