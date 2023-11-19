@@ -8,13 +8,13 @@ function App() {
 
   return (
     <>
-      <Navbar />
 
+      <Navbar />
       <main>
         <Home />
         <ProductList />
       </main>
-
+  
     </>
   )
 }
