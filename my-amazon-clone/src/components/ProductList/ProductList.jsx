@@ -12,7 +12,7 @@ export const ProductList = () => {
                     <div>Like rows, a column track is created for each value specified for grid-template-columns.</div>
                     <div>Like rows, a column track is created for each value specified for grid-template-columns.</div>
                 </div>
-                <div className="product-grid"> <ul>
+                <div className="product-grid"><ul>
                     {products.map(product => (
                         <li className='box' key={product.id}>
                             <div className="product-img">
@@ -26,8 +26,6 @@ export const ProductList = () => {
                     ))}
                 </ul></div>
             </div>
-
-
         </section>
     )
 }

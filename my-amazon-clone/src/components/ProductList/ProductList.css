@@ -1,5 +1,4 @@
 section {
-
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -10,9 +9,8 @@ section {
 }
 
 .grid {
-
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: grid;
     background-color: #FFFFFF;
     grid-template-columns: .2fr 1fr;

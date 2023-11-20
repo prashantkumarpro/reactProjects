@@ -5,27 +5,25 @@ import Layout from './Layout.jsx'
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx'
 import Home from './components/Home/Home.jsx'
 import { ProductList } from './components/ProductList/ProductList.jsx'
-import Navbar from './components/Navbar/Navbar.jsx'
 import './index.css'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout/>,
+    element: <Layout />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "Mobile",
-    element: <ProductList/>,
-  },
-  {
-    path: "Navbar",
-    element: <Navbar/>,
-  },
-  {
-    path: "Home",
-    element: <Home/>,
-  },
+    children: [
+      {
+        path: "",
+        element: <Home />,
+      },
+      {
+        path: "Mobile",
+        element: <ProductList />,
+      },
+    ]
+  }
+
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

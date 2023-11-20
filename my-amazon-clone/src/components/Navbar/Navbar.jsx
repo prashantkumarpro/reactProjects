@@ -12,9 +12,9 @@ const Navbar = () => {
             <nav>
                 <div className='nav-part1'>
                     <div className="left">
-                        <div className="nav-logo border">
+                        <Link to="/" className="nav-logo border">
                             <img src={logo} alt="" />
-                        </div>
+                        </Link>
                         <div className="nav-location">
                             <div className="locatin-icon">
                                 <i class="ri-map-pin-line"></i>
