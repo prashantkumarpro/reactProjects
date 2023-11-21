@@ -29,29 +29,28 @@
     object-fit: cover;
 }
 
-.product-con .box h3 {
+.product-con .product-des h3 {
     margin-top: 10px;
     font-weight: 600;
     color: #000;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 4rem;
 }
 
-.product-con .box .price {
+.product-con .product-des .price {
     margin-top: 8px;
     font-weight: 600;
     color: #000;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
 }
 
 
-.product-con .box p {
-    margin-top: 20px;
+.product-con .product-des p:nth-child(1) {
     font-weight: 600;
     color: #000;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 5rem;
 }
 
 
