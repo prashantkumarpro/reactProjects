@@ -6,6 +6,7 @@ import ErrorPage from './components/ErrorPage/ErrorPage.jsx'
 import Home from './components/Home/Home.jsx'
 import { ProductList } from './components/ProductList/ProductList.jsx'
 import './index.css'
+import SingleProduct from './components/ProductDetail/SingleProduct.jsx'
 
 const router = createBrowserRouter([
   {
@@ -18,9 +19,13 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "Mobile",
+        path: "/Mobile",
         element: <ProductList />,
       },
+      {
+        path: "/SingleProduct/:id",
+        element: <SingleProduct/>
+      }
     ]
   }
 

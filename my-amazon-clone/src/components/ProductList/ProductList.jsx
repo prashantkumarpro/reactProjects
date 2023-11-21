@@ -1,6 +1,7 @@
 import React from 'react'
 import './ProductList.css'
-import { products } from './data.js';
+import { products } from './data';
+import { Link } from 'react-router-dom';
 export const ProductList = () => {
 
     return (
@@ -14,7 +15,10 @@ export const ProductList = () => {
                 </div>
                 <div className="product-grid"><ul>
                     {products.map(product => (
-                        <li className='box' key={product.id}>
+                        <Link
+                            to={`/SingleProduct/${product.id}`}
+                            className='box'
+                            key={product.id}>
                             <div className="product-img">
                                 <img src={product.imageUrl} alt="product-image" />
                             </div>
@@ -22,7 +26,7 @@ export const ProductList = () => {
                             <p>${product.details}</p>
                             <p className='price'>${product.price}</p>
                             <button>Add to Cart</button>
-                        </li>
+                        </Link >
                     ))}
                 </ul></div>
             </div>

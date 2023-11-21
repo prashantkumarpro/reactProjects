@@ -1,6 +1,7 @@
 export const products = [
     {
         id: 1,
+        title:'Mobile',
         name: 'Redmi 12C',
         price: 20.99,
         details: 'Royal Blue, 4GB RAM, 128GB Storage',
@@ -8,6 +9,7 @@ export const products = [
     },
     {
         id: 2,
+        title:'Mobile',
         name: 'Redmi A2',
         price: 15.49,
         details: 'Sea Green, 2GB RAM, 64GB Storage',
@@ -15,6 +17,7 @@ export const products = [
     },
     {
         id: 3,
+        title:'Mobile',
         name: 'Redmi A2',
         price: 15.49,
         details: 'Classic Black, 2GB RAM, 64GB Storage',
@@ -22,6 +25,7 @@ export const products = [
     },
     {
         id: 4,
+        title:'Mobile',
         name: 'Redmi 12 5G',
         price: 15.49,
         details: 'Jade Black 4GB RAM 128GB ROM',
@@ -29,6 +33,7 @@ export const products = [
     },
     {
         id: 5,
+        title:'Mobile',
         name: 'Redmi Note 12 ',
         price: 15.49,
         details: '(Ice Blue, 6GB RAM, 64GB Storage',
@@ -36,6 +41,7 @@ export const products = [
     },
     {
         id: 6,
+        title:'Mobile',
         name: 'Redmi 12C',
         price: 15.49,
         details: 'Royal Blue, 6GB RAM, 128GB Storage',
