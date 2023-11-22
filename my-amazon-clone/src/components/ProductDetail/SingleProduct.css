@@ -29,8 +29,14 @@
     object-fit: cover;
 }
 
+.product-con .product-des{
+    position: relative;
+    width: 45vw;
+    height: 75vh;
+
+}
 .product-con .product-des h3 {
-    margin-top: 10px;
+    /* margin-top: 10px; */
     font-weight: 600;
     color: #000;
     cursor: pointer;
@@ -46,11 +52,11 @@
 }
 
 
-.product-con .product-des p:nth-child(1) {
+.product-con .product-des .detail {
     font-weight: 600;
     color: #000;
     cursor: pointer;
-    font-size: 5rem;
+    font-size: 2rem;
 }
 
 

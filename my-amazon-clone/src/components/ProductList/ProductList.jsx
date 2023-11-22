@@ -23,8 +23,8 @@ export const ProductList = () => {
                                 <img src={product.imageUrl} alt="product-image" />
                             </div>
                             <h3>{product.name}</h3>
-                            <p>${product.details}</p>
-                            <p className='price'>${product.price}</p>
+
+                            <p className='price'>₹ {product.price}</p>
                             <button>Add to Cart</button>
                         </Link >
                     ))}
