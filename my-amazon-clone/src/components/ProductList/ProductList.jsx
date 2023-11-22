@@ -7,7 +7,7 @@ export const ProductList = () => {
     return (
         <section>
             <div className="grid">
-                <div className="filter">filter
+                <div className="filter">filter The Products
                     <div>Like rows, a column track is created for each value specified for grid-template-columns.</div>
                     <div>Like rows, a column track is created for each value specified for grid-template-columns.</div>
                     <div>Like rows, a column track is created for each value specified for grid-template-columns.</div>

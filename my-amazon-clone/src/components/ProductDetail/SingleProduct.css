@@ -60,7 +60,7 @@
 }
 
 
-.product-con .product-des button {
+  button {
     padding: 8px 12px;
     border: none;
     outline: none;
@@ -71,4 +71,25 @@
     color: #3f3f3f;
     cursor: pointer;
     background-color: aquamarine;
+}
+
+.product-grid ul {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.product-grid ul .box {
+    position: relative;
+    width: 25vw;
+    height: 75vh;
+    background-color: #F7F7F7;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 1rem;
+
 }
