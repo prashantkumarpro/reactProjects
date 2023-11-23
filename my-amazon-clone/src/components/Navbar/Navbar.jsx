@@ -60,37 +60,37 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
-                <div className="nav-part2">
-                    <div className="left">
-                        <i class="ri-menu-line"></i>
-                        <h3>All</h3>
-                    </div>
-                    <div className="shop-container">
-                        <ul className="shop-link">
-                            <li> <Link to="/Mobile"> Mobile</Link></li>
-                            <li> <Link to="prime"> Prime</Link></li>
-                            <li> <Link> Prime</Link></li>
-                            <li> <Link> Amazon miniTV</Link></li>
-                            <li> <Link> Sell</Link></li>
-                            <li> <Link> Amazon Pay</Link></li>
-                            <li> <Link> Subscrive And Save</Link></li>
-                            <li> <Link> Buy Again</Link></li>
-                            <li> <Link> Cupon</Link></li>
-                            <li> <Link> Gift Card</Link></li>
-                        </ul>
-                    </div>
-                    <div className="right">
-                        <ul className='right-con'>
-                            <li><Link>New Launches from Mobile,</Link></li>
-                            <li><Link>Electronics & more</Link></li>
-                        </ul>
 
+            </nav>
+            <div className="nav-part2">
+                <div className="left">
+                    <i class="ri-menu-line"></i>
+                    <h3>All</h3>
+                </div>
+                <div className="shop-container">
+                    <ul className="shop-link">
+                        <li> <Link to="/Mobile"> Mobile</Link></li>
+                        <li> <Link to="prime"> Prime</Link></li>
+                        <li> <Link> Prime</Link></li>
+                        <li> <Link> Amazon miniTV</Link></li>
+                        <li> <Link> Sell</Link></li>
+                        <li> <Link> Amazon Pay</Link></li>
+                        <li> <Link> Subscrive And Save</Link></li>
+                        <li> <Link> Buy Again</Link></li>
+                        <li> <Link> Cupon</Link></li>
+                        <li> <Link> Gift Card</Link></li>
+                    </ul>
+                </div>
+                <div className="right">
+                    <ul className='right-con'>
+                        <li><Link>New Launches from Mobile,</Link></li>
+                        <li><Link>Electronics & more</Link></li>
+                    </ul>
 
-                    </div>
 
                 </div>
-            </nav>
 
+            </div>
 
         </>
     )

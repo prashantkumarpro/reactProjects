@@ -7,11 +7,23 @@ export const ProductList = () => {
     return (
         <section>
             <div className="grid">
-                <div className="filter">filter The Products
-                    <div>Like rows, a column track is created for each value specified for grid-template-columns.</div>
-                    <div>Like rows, a column track is created for each value specified for grid-template-columns.</div>
-                    <div>Like rows, a column track is created for each value specified for grid-template-columns.</div>
-                    <div>Like rows, a column track is created for each value specified for grid-template-columns.</div>
+                <div className="filter">
+                    <h3>Filter Options</h3>
+                    <div className="filter-option">
+                       <div className="price">
+                        <h3>Price</h3>
+                       <div className="price">₹ 5000</div>
+                        <input type="range" name="" id="" />
+                       </div>
+
+                       <div className="colors">
+                  
+                        <div className="box">red</div>
+                        <div className="box">blue</div>
+                        <div className="box">green</div>
+                        <div className="box">pink</div>
+                       </div>
+                    </div>
                 </div>
                 <div className="product-grid"><ul>
                     {products.map(product => (

@@ -58,8 +58,8 @@ const SingleProduct = () => {
                     <button>Add to Cart</button>
                 </div>
             </div>
-
-            <label>
+<div className="filter-box">
+<label>
                 Filter by Amount:
                 <input
                     type="number"
@@ -67,6 +67,8 @@ const SingleProduct = () => {
                     onChange={handleFilterChange}
                 />
             </label>
+</div>
+          
 
             <div className="product-grid">
                 <h2 className='same-brands'>Same Mobiles Brand</h2>
