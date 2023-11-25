@@ -1,8 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './ProductList.css'
 import { products } from './data';
 import { Link } from 'react-router-dom';
+
+
 export const ProductList = () => {
+
+    const [data, setData] = useState(products)
+    const [brandName, setBrandName] = useState('')
+
+
+
+    useEffect(() => {
+        if (brandName) {
+            const filteredData = products.filter((product) => product.brand === brandName);
+            setData(filteredData);
+            // console.log(filteredData);
+        } else {
+            setData(products)
+        }
+    }, [brandName])
+
+
+
 
     return (
         <section>
@@ -12,11 +32,14 @@ export const ProductList = () => {
                     <div className="brand">
                         <h3>Brand</h3>
                         <div className="brand-con">
-                            <div className="brand-name hover">Redmi</div>
-                            <div className="brand-name hover">Poco</div>
-                            <div className="brand-name hover">Motorola </div>
-                            <div
-                                className="brand-name hover">Samsung</div>
+
+                            <div className="brand-name hover"
+                                onClick={() => setBrandName('Redmi')}>Redmi
+                            </div>
+                            <div className="brand-name hover" onClick={() => setBrandName('POCO')}>Poco</div>
+                            <div className="brand-name hover" onClick={() => setBrandName('Motorola')}>Motorola </div>
+                            <div className="brand-name hover" onClick={() => setBrandName('Samsung')}>Samsung</div>
+                            <div className="brand-name hover" onClick={() => setData(products)}>All</div>
                         </div>
                     </div>
 
@@ -40,8 +63,9 @@ export const ProductList = () => {
                     </div>
 
                 </div>
+
                 <div className="product-grid"><ul>
-                    {products.map(product => (
+                    {data.map(product => (
                         <Link
                             to={`/SingleProduct/${product.id}`}
                             className='box'
@@ -57,7 +81,7 @@ export const ProductList = () => {
                     ))}
                 </ul></div>
 
-          
+
 
             </div>
         </section>

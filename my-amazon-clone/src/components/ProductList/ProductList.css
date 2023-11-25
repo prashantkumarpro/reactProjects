@@ -100,9 +100,14 @@ section {
     display: flex;
     flex-direction: column;
     gap: 15px;
+  
 }
+
 .filter-page h3{
     margin-bottom: 10px;
+}
+.brand-name{
+    color: #000;
 }
 .filter-page .price{
     cursor: pointer;

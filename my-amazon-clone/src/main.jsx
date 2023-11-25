@@ -9,6 +9,7 @@ import ErrorPage from './components/ErrorPage/ErrorPage.jsx'
 import Home from './components/Home/Home.jsx'
 import { ProductList } from './components/ProductList/ProductList.jsx'
 import SingleProduct from './components/ProductDetail/SingleProduct.jsx'
+import Result from './components/Result/Result.jsx'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/SingleProduct/:id",
         element: <SingleProduct />
+      },
+      {
+        path: "/Result",
+        element: <Result />
       }
     ]
   }
