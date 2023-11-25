@@ -8,18 +8,29 @@ export const ProductList = () => {
 
     const [data, setData] = useState(products)
     const [brandName, setBrandName] = useState('')
+    const [filterAmount, setFilterAmount] = useState(null)
 
 
 
     useEffect(() => {
+
         if (brandName) {
-            const filteredData = products.filter((product) => product.brand === brandName);
-            setData(filteredData);
+            // filter by brand name
+            const filteredBrandData = products.filter((product) => product.brand === brandName);
+            setData(filteredBrandData);
             // console.log(filteredData);
-        } else {
+        } else if (filterAmount) {
+            // filter by amount 
+            const filterdeAmount = products.filter((amount) => filterAmount.min && amount.price <= filterAmount.max);
+            setData(filterdeAmount)
+            console.log(filterdeAmount)
+        }
+        else {
             setData(products)
         }
-    }, [brandName])
+
+
+    }, [brandName, products, filterAmount])
 
 
 
@@ -39,17 +50,17 @@ export const ProductList = () => {
                             <div className="brand-name hover" onClick={() => setBrandName('POCO')}>Poco</div>
                             <div className="brand-name hover" onClick={() => setBrandName('Motorola')}>Motorola </div>
                             <div className="brand-name hover" onClick={() => setBrandName('Samsung')}>Samsung</div>
-                            <div className="brand-name hover" onClick={() => setData(products)}>All</div>
+                            <div className="brand-name hover" onClick={() => setBrandName('')}>All</div>
                         </div>
                     </div>
 
                     <div className="price-filter">
                         <h3>Price</h3>
-                        <div className="price hover">Under ₹1,000</div>
-                        <div className="price hover">₹1,000 - ₹5,000 </div>
-                        <div className="price hover"> ₹5,000 - ₹10,000</div>
-                        <div className="price hover"> ₹10,000 - ₹20,000</div>
-                        <div className="price hover">Over ₹20,000</div>
+                        <div className="price hover" onClick={() => setFilterAmount({ min: 0, max: 1000 })}>Under ₹1,000</div>
+                        <div className="price hover" onClick={() => setFilterAmount({ min: 1000, max: 5000 })}>₹1,000 - ₹5,000 </div>
+                        <div className="price hover" onClick={() => setFilterAmount({ min: 5000, max: 10000 })}> ₹5,000 - ₹10,000</div>
+                        <div className="price hover" onClick={() => setFilterAmount({ min: 10000, max: 20000 })}> ₹10,000 - ₹20,000</div>
+                        <div className="price hover" onClick={() => setFilterAmount({ min: 20000, max: null })}>Over ₹20,000</div>
                     </div>
 
                     <div className="color-filter">
