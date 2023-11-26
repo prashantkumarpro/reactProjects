@@ -9,7 +9,7 @@ export const ProductList = () => {
     const [data, setData] = useState(products)
     const [brandName, setBrandName] = useState('')
     const [filterAmount, setFilterAmount] = useState(null)
-
+    const [filterColer, setFilterColor] = useState('')
 
 
     useEffect(() => {
@@ -23,12 +23,21 @@ export const ProductList = () => {
             // filter by amount 
             const filterdeAmount = products.filter((amount) => filterAmount.min <= amount.price && amount.price <= filterAmount.max);
             setData(() => filterdeAmount)
-        } else {
+        } else if (filterColer){
+            // filter by color
+            const filteredColor = products.filter((product)=>product.color === filterColer );
+            setData (()=> filteredColor)
+            console.log(filteredColor)
+        }
+        
+        
+        else {
+           
             setData(() => products)
         }
 
 
-    }, [brandName, products, filterAmount])
+    }, [brandName, products, filterAmount,filterColer])
 
 
 
@@ -64,10 +73,10 @@ export const ProductList = () => {
                     <div className="color-filter">
                         <h3>Color</h3>
                         <div className="color-box">
-                            <div className="box">red</div>
-                            <div className="box">blue</div>
-                            <div className="box">green</div>
-                            <div className="box">pink</div>
+                            <div className="box" style={{ backgroundColor: 'blue' }} onClick={()=> setFilterColor('Blue')} ></div>
+                            <div className="box" style={{ backgroundColor: 'Black' }}  onClick={()=> setFilterColor('Black')}  ></div>
+                            <div className="box" style={{ backgroundColor: 'green' }}   onClick={()=> setFilterColor('Green')}  ></div>
+                            <div className="box" style={{ backgroundColor: 'silver' }}   onClick={()=> setFilterColor('Silver')}  ></div>
                         </div>
                     </div>
 
