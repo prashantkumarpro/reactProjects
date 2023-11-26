@@ -17,16 +17,14 @@ export const ProductList = () => {
         if (brandName) {
             // filter by brand name
             const filteredBrandData = products.filter((product) => product.brand === brandName);
-            setData(filteredBrandData);
-            // console.log(filteredData);
+            setData(() => filteredBrandData);
+
         } else if (filterAmount) {
             // filter by amount 
-            const filterdeAmount = products.filter((amount) => filterAmount.min && amount.price <= filterAmount.max);
-            setData(filterdeAmount)
-            console.log(filterdeAmount)
-        }
-        else {
-            setData(products)
+            const filterdeAmount = products.filter((amount) => filterAmount.min <= amount.price && amount.price <= filterAmount.max);
+            setData(() => filterdeAmount)
+        } else {
+            setData(() => products)
         }
 
 
@@ -60,7 +58,7 @@ export const ProductList = () => {
                         <div className="price hover" onClick={() => setFilterAmount({ min: 1000, max: 5000 })}>₹1,000 - ₹5,000 </div>
                         <div className="price hover" onClick={() => setFilterAmount({ min: 5000, max: 10000 })}> ₹5,000 - ₹10,000</div>
                         <div className="price hover" onClick={() => setFilterAmount({ min: 10000, max: 20000 })}> ₹10,000 - ₹20,000</div>
-                        <div className="price hover" onClick={() => setFilterAmount({ min: 20000, max: null })}>Over ₹20,000</div>
+                        <div className="price hover" onClick={() => setFilterAmount({ min: 20000, max: Infinity })}>Over ₹20,000</div>
                     </div>
 
                     <div className="color-filter">
