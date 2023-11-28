@@ -58,16 +58,7 @@ const SingleProduct = () => {
                     <button>Add to Cart</button>
                 </div>
             </div>
-            <div className="filter-box">
-                <label>
-                    Filter by Amount:
-                    <input
-                        type="number"
-                        value={amount}
-                        onChange={handleFilterChange}
-                    />
-                </label>
-            </div>
+        
 
 
             <div className="product-grid">

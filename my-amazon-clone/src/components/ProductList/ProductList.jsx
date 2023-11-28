@@ -10,11 +10,21 @@ export const ProductList = () => {
     const [brandName, setBrandName] = useState('')
     const [filterAmount, setFilterAmount] = useState(null)
     const [filterColer, setFilterColor] = useState('')
-
+    const [searchQuery, setSearchQuery] = useState('')
 
     useEffect(() => {
 
-        if (brandName) {
+        if (searchQuery) {
+            // serach products by their name and title 
+            const filteredQuery = products.filter((product) =>
+                product.name.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1 ||
+                product.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1
+            );
+            console.log(filteredQuery)
+            setData(() => filteredQuery);
+
+        }
+        else if (brandName) {
             // filter by brand name
             const filteredBrandData = products.filter((product) => product.brand === brandName);
             setData(() => filteredBrandData);
@@ -23,47 +33,59 @@ export const ProductList = () => {
             // filter by amount 
             const filterdeAmount = products.filter((amount) => filterAmount.min <= amount.price && amount.price <= filterAmount.max);
             setData(() => filterdeAmount)
-        } else if (filterColer){
+        } else if (filterColer) {
             // filter by color
-            const filteredColor = products.filter((product)=>product.color === filterColer );
-            setData (()=> filteredColor)
+            const filteredColor = products.filter((product) => product.color === filterColer);
+            setData(() => filteredColor)
             console.log(filteredColor)
         }
-        
-        
+
+
         else {
-           
+
             setData(() => products)
         }
 
 
-    }, [brandName, products, filterAmount,filterColer])
-
+    }, [brandName, products, filterAmount, filterColer, searchQuery])
 
 
 
     return (
         <section>
+            <div className="filter-box">
+                <label>
+                    <input
+                        type="text"
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        value={searchQuery}
+                    />
+                </label>
+            </div>
             <div className="grid">
+
                 <div className="filter-page">
                     <h3>Category</h3>
                     <div className="brand">
                         <h3>Brand</h3>
                         <div className="brand-con">
-
+                            <div className="brand-name hover" onClick={() => setBrandName('')}>All</div>
                             <div className="brand-name hover"
                                 onClick={() => setBrandName('Redmi')}>Redmi
                             </div>
                             <div className="brand-name hover" onClick={() => setBrandName('POCO')}>Poco</div>
                             <div className="brand-name hover" onClick={() => setBrandName('Motorola')}>Motorola </div>
                             <div className="brand-name hover" onClick={() => setBrandName('Samsung')}>Samsung</div>
-                            <div className="brand-name hover" onClick={() => setBrandName('')}>All</div>
+
                         </div>
                     </div>
 
                     <div className="price-filter">
                         <h3>Price</h3>
-                        <div className="price hover" onClick={() => setFilterAmount({ min: 0, max: 1000 })}>Under ₹1,000</div>
+                        <div className="price hover"
+                            onClick={() => setFilterAmount(null)}>All</div>
+                        <div className="price hover"
+                            onClick={() => setFilterAmount({ min: 0, max: 1000 })}>Under ₹1,000</div>
                         <div className="price hover" onClick={() => setFilterAmount({ min: 1000, max: 5000 })}>₹1,000 - ₹5,000 </div>
                         <div className="price hover" onClick={() => setFilterAmount({ min: 5000, max: 10000 })}> ₹5,000 - ₹10,000</div>
                         <div className="price hover" onClick={() => setFilterAmount({ min: 10000, max: 20000 })}> ₹10,000 - ₹20,000</div>
@@ -72,11 +94,12 @@ export const ProductList = () => {
 
                     <div className="color-filter">
                         <h3>Color</h3>
+                        <div className="hover" onClick={() => setFilterColor('')}>All</div>
                         <div className="color-box">
-                            <div className="box" style={{ backgroundColor: 'blue' }} onClick={()=> setFilterColor('Blue')} ></div>
-                            <div className="box" style={{ backgroundColor: 'Black' }}  onClick={()=> setFilterColor('Black')}  ></div>
-                            <div className="box" style={{ backgroundColor: 'green' }}   onClick={()=> setFilterColor('Green')}  ></div>
-                            <div className="box" style={{ backgroundColor: 'silver' }}   onClick={()=> setFilterColor('Silver')}  ></div>
+                            <div className="box" style={{ backgroundColor: 'blue' }} onClick={() => setFilterColor('Blue')} ></div>
+                            <div className="box" style={{ backgroundColor: 'Black' }} onClick={() => setFilterColor('Black')}  ></div>
+                            <div className="box" style={{ backgroundColor: 'green' }} onClick={() => setFilterColor('Green')}  ></div>
+                            <div className="box" style={{ backgroundColor: 'silver' }} onClick={() => setFilterColor('Silver')}></div>
                         </div>
                     </div>
 
@@ -88,6 +111,7 @@ export const ProductList = () => {
                             to={`/SingleProduct/${product.id}`}
                             className='box'
                             key={product.id}>
+
                             <div className="product-img">
                                 <img src={product.imageUrl} alt="product-image" />
                             </div>
@@ -105,3 +129,10 @@ export const ProductList = () => {
         </section>
     )
 }
+
+
+
+
+
+
+
