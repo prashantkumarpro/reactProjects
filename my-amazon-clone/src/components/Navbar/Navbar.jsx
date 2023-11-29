@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import logo from './amazon_logo.png'
 import { Link } from 'react-router-dom'
 import { products } from '../ProductList/data'
-
 const Navbar = () => {
-   
+    const [data, setData] = useState(products)
+    const [query, setQuery] = useState('')
+    
+    useEffect(() => {
+     
+    }, [])
+    
     return (
         <>
 
@@ -31,7 +36,7 @@ const Navbar = () => {
                         <select>
                             <option>All</option>
                         </select>
-                        <input type="text"  />
+                        <input type="text" onChange={(e) => setQuery(e.target.value)} />
                         <div className="search-box">
                             <i class="ri-search-line"></i>
                         </div>

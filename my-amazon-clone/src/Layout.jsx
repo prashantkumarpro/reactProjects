@@ -1,19 +1,23 @@
-
 import Navbar from './components/Navbar/Navbar';
 import { Outlet } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
+import { useState } from 'react';
+import { products } from './components/ProductList/data';
 
-function App() {
 
 
+function Layout() {
+
+const [data, setData] = useState(products)
+// const [query, setQuery] = useState('')
   return (
     <>
 
-      <Navbar />
+      <Navbar data={data} />
       <Outlet />
       <Footer />
     </>
   )
 }
 
-export default App
+export default Layout

@@ -7,18 +7,18 @@ import { Link } from 'react-router-dom';
 export const ProductList = () => {
 
     const [data, setData] = useState(products)
+    const [searchQuery, setSearchQuery] = useState('')
     const [brandName, setBrandName] = useState('')
     const [filterAmount, setFilterAmount] = useState(null)
     const [filterColer, setFilterColor] = useState('')
-    const [searchQuery, setSearchQuery] = useState('')
+
 
     useEffect(() => {
 
         if (searchQuery) {
             // serach products by their name and title 
             const filteredQuery = products.filter((product) =>
-                product.name.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1 ||
-                product.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1
+                product.name.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1 
             );
             console.log(filteredQuery)
             setData(() => filteredQuery);
@@ -58,6 +58,7 @@ export const ProductList = () => {
                     <input
                         type="text"
                         onChange={(e) => setSearchQuery(e.target.value)}
+                        placeholder='Search here...'
                         value={searchQuery}
                     />
                 </label>

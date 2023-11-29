@@ -14,9 +14,7 @@ const SingleProduct = () => {
 
     const [amount, setAmount] = useState('')
 
-    const handleFilterChange = (e) => {
-        setAmount(e.target.value)
-    }
+  
 
     useEffect(() => {
 
@@ -31,7 +29,6 @@ const SingleProduct = () => {
         setRelatedProduct(filterBrandName)
 
         // Filter by amount
-
         const filterAmount = products.filter((mobile) => amount === '' || mobile.price <= parseInt(amount))
         console.log(filterAmount)
         setAmount(filterAmount)
