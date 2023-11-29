@@ -12,7 +12,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />} >
+        <Route path="/" element={<Layout data={data} />} >
           <Route index element={<Home />} />
           <Route path="Mobile" element={<ProductList />} />
           <Route path="SingleProduct/:id" element={<SingleProduct />} />

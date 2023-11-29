@@ -6,11 +6,13 @@ import { products } from '../ProductList/data'
 const Navbar = () => {
     const [data, setData] = useState(products)
     const [query, setQuery] = useState('')
-    
+
     useEffect(() => {
-     
-    }, [])
-    
+        const filteredQuery = products.filter((product) => product.name.toLowerCase().indexOf(query.toLowerCase()) !== -1)
+        setData(() => filteredQuery)
+        console.log(filteredQuery)
+    }, [query])
+
     return (
         <>
 
@@ -36,7 +38,8 @@ const Navbar = () => {
                         <select>
                             <option>All</option>
                         </select>
-                        <input type="text" onChange={(e) => setQuery(e.target.value)} />
+                        <input type="text" onChange={(e) => setQuery(e.target.value)}
+                        />
                         <div className="search-box">
                             <i class="ri-search-line"></i>
                         </div>
