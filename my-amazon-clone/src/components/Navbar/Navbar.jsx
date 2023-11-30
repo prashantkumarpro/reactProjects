@@ -2,15 +2,23 @@ import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import logo from './amazon_logo.png'
 import { Link } from 'react-router-dom'
+import { products } from '../ProductList/data'
 const Navbar = ({ data, setData, onDataFilter }) => {
 
     const [query, setQuery] = useState('')
 
     useEffect(() => {
-        const filteredQuery = data.filter((product) => product.name.toLowerCase().indexOf(query.toLowerCase()) !== -1)
-        setData(filteredQuery)
-        onDataFilter(filteredQuery)
-        console.log(filteredQuery)
+        if (query) {
+            const filteredQuery = data.filter((product) => product.name.toLowerCase().indexOf(query.toLowerCase()) !== -1)
+            setData(filteredQuery)
+            onDataFilter(filteredQuery)
+            console.log(filteredQuery)
+        } else {
+            // If the query is empty, show the original data
+            setData([...products]);
+            onDataFilter([]);
+        }
+
     }, [query])
 
     return (
