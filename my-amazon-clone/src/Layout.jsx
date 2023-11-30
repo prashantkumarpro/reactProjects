@@ -2,14 +2,14 @@ import Navbar from './components/Navbar/Navbar';
 import { Outlet } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 
+function Layout({ data, setData, onDataFilter }) {
 
 
 
-function Layout() {
   return (
     <>
 
-      <Navbar data={data} />
+      <Navbar data={data} setData={setData} onDataFilter={onDataFilter} />
       <Outlet />
       <Footer />
     </>

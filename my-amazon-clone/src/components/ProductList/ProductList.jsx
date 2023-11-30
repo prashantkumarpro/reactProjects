@@ -18,13 +18,12 @@ export const ProductList = () => {
         if (searchQuery) {
             // serach products by their name and title 
             const filteredQuery = products.filter((product) =>
-                product.name.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1 
+                product.name.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1
             );
             console.log(filteredQuery)
             setData(() => filteredQuery);
 
-        }
-        else if (brandName) {
+        } else if (brandName) {
             // filter by brand name
             const filteredBrandData = products.filter((product) => product.brand === brandName);
             setData(() => filteredBrandData);
@@ -38,10 +37,7 @@ export const ProductList = () => {
             const filteredColor = products.filter((product) => product.color === filterColer);
             setData(() => filteredColor)
             console.log(filteredColor)
-        }
-
-
-        else {
+        } else {
 
             setData(() => products)
         }
@@ -63,6 +59,7 @@ export const ProductList = () => {
                     />
                 </label>
             </div>
+
             <div className="grid">
 
                 <div className="filter-page">
