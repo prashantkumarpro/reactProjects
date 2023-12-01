@@ -12,7 +12,6 @@ const SingleProduct = () => {
 
     const [relatedProduct, setRelatedProduct] = useState([])
 
-    const [amount, setAmount] = useState('')
 
   
 
@@ -28,11 +27,7 @@ const SingleProduct = () => {
         // console.log(filterBrandName)
         setRelatedProduct(filterBrandName)
 
-        // Filter by amount
-        const filterAmount = products.filter((mobile) => amount === '' || mobile.price <= parseInt(amount))
-        console.log(filterAmount)
-        setAmount(filterAmount)
-
+      
     }, [id, product.brand])
 
 

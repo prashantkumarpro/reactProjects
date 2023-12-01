@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import logo from './amazon_logo.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { products } from '../ProductList/data'
-const Navbar = ({ data, setData, onDataFilter }) => {
+
+const Navbar = ({ setData }) => {
 
     const [query, setQuery] = useState('')
+    const [filterData, setFilterData] = useState([])
+    const navigte = useNavigate()
+
+
 
     useEffect(() => {
-        if (query) {
-            const filteredQuery = data.filter((product) => product.name.toLowerCase().indexOf(query.toLowerCase()) !== -1)
-            setData(filteredQuery)
-            onDataFilter(filteredQuery)
-            console.log(filteredQuery)
-        } else {
-            // If the query is empty, show the original data
-            setData([...products]);
-            onDataFilter([]);
-        }
+        const filteredQuery = products.filter((product) => product.name.toLowerCase().indexOf(query.toLowerCase()) !== -1)
+        setData(filteredQuery)
+        setFilterData(filteredQuery)
+        console.log(filteredQuery)
 
     }, [query])
+
+    const submitHendlar = (e) => {
+        e.preventDefault()
+        navigte(`/Result/queryResult${filterData}`)
+    }
 
     return (
         <>
@@ -42,16 +46,21 @@ const Navbar = ({ data, setData, onDataFilter }) => {
                         </div>
                     </div>
 
-                    <div className="nav-search">
+                    <form
+                        onSubmit={submitHendlar}
+                        className="nav-search">
+
                         <select>
                             <option>All</option>
                         </select>
-                        <input type="text" onChange={(e) => setQuery(e.target.value)}
+                        <input type="text"
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
                         />
                         <div className="search-box">
                             <i class="ri-search-line"></i>
                         </div>
-                    </div>
+                    </form>
 
                     <div className="right">
                         <div className="country">

@@ -10,21 +10,19 @@ import { products } from './components/ProductList/data.jsx';
 
 const App = () => {
   const [data, setData] = useState([...products]);
-  const [filterData, setFilterData] = useState([]);
 
-  const dataHandler = (filteredData) => {
-    setFilterData(filteredData);
-  };
+
+ 
 
   return (
 
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout data={data} setData={setData} onDataFilter={dataHandler} />} >
+        <Route path="/" element={<Layout setData={setData}/>} >
           <Route index element={<Home />} />
-          <Route path="Mobile" element={<ProductList filterData={filterData} />} />
+          <Route path="Mobile" element={<ProductList />} />
           <Route path="SingleProduct/:id" element={<SingleProduct />} />
-          <Route path="Result" element={<Result data={data}/>} />
+          <Route path="Result/:queryResult" element={<Result data={data}/>} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
