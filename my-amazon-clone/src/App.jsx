@@ -7,6 +7,7 @@ import { ProductList } from './components/ProductList/ProductList.jsx';
 import SingleProduct from './components/ProductDetail/SingleProduct.jsx';
 import Result from './components/Result/Result.jsx';
 import { products } from './components/ProductList/data.jsx';
+import Cart from './components/Cart/Cart.jsx';
 
 const App = () => {
   const [data, setData] = useState([...products]);
@@ -18,11 +19,12 @@ const App = () => {
 
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout setData={setData} cart={cart}/>} >
+        <Route path="/" element={<Layout setData={setData} data={data} cart={cart} />} >
           <Route index element={<Home />} />
           <Route path="Mobile" element={<ProductList item={data} cart={cart} setCart={setCart} />} />
-          <Route path="SingleProduct/:id" element={<SingleProduct />} />
-          <Route path="Result/:queryResult" element={<Result />} />
+          <Route path="SingleProduct/:id" element={<SingleProduct cart={cart} setCart={setCart} />} />
+          <Route path="Result/:queryResult" element={<Result cart={cart} setCart={setCart} />} />
+          <Route path="Cart" element={<Cart cart={cart} setCart={setCart} />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

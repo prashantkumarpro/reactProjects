@@ -3,8 +3,10 @@ import './Result.css';
 import { Link, useParams } from 'react-router-dom';
 import { products } from '../ProductList/data';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const Result = () => {
+const Result = ({ cart, setCart }) => {
   const [filterData, setFilterData] = useState([])
 
   const { queryResult } = useParams();
@@ -23,29 +25,63 @@ const Result = () => {
     filteredData()
 
   }, [queryResult])
-  
+
+  const addToCart = (id, title, price, imageUrl, details) => {
+    const obj = {
+      id, title, price, imageUrl, details
+    }
+    setCart([...cart, obj])
+    toast.success('item added!', {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+
+  }
 
   return (
     <>
-      {filterData.length > 0 ? (<div className="product-grid"><ul>
-        {filterData.map(product => (
-          <Link
-            to={`/SingleProduct/${product.id}`}
-            className='box'
-            key={product.id}>
+      <ToastContainer
+        position="top-right"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+      {filterData.length > 0 ? (
+        <div className="product-grid"><ul>
+          {filterData.map(product => (
+            <div
+              className='box'
+              key={product.id}>
 
-            <div className="product-img">
-              <img src={product.imageUrl} alt="product-image" />
-            </div>
-            <h3>{product.name}</h3>
+              <Link
+                to={`/SingleProduct/${product.id}`}
+                className="product-img">
+                <img src={product.imageUrl} alt="product-image" />
+              </Link>
+              <h3>{product.name}</h3>
 
-            <p className='price'>₹ {product.price}</p>
-            <button>Add to Cart</button>
-          </Link >
-        ))}
-      </ul></div>) : (
+              <p className='price'>₹ {product.price}</p>
+              <button
+                onClick={() => addToCart(product.id, product.title, product.price, product.imageUrl, product.details)}
+              >Add to Cart</button>
+            </div >
+          ))}
+        </ul></div>) : (
         <p>Products not found</p>
       )}
+
     </>
   );
 };

@@ -74,13 +74,14 @@ const Navbar = ({cart}) => {
                             <span className='line-1'>Returns</span>
                             <span className='line-2'>& Oreder</span>
                         </div>
-                        <div className="nav-cart">
-
+                        <Link
+                        to="/Cart"
+                        className="nav-cart">
                             <span className="icon">
                                 <div className="number-of-item">{cart.length}</div>
                                 <i class="ri-shopping-cart-line"></i></span>
                             <span className='cart'></span>
-                        </div>
+                        </Link>
                     </div>
                 </div>
 

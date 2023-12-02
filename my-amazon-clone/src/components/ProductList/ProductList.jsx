@@ -13,7 +13,7 @@ export const ProductList = ({ cart, setCart }) => {
     const [filterAmount, setFilterAmount] = useState(null)
     const [filterColer, setFilterColor] = useState('')
 
-    const notify = () => toast("Wow so easy!");
+
     useEffect(() => {
 
         if (searchQuery) {
@@ -43,8 +43,8 @@ export const ProductList = ({ cart, setCart }) => {
             setData(() => products)
         }
 
-        console.log('Cart element ', cart)
-    }, [brandName, products, filterAmount, filterColer, searchQuery, cart])
+    
+    }, [brandName, products, filterAmount, filterColer, searchQuery])
 
     const addToCart = (id, title, price, imageUrl, details) => {
         const obj = {
@@ -60,7 +60,7 @@ export const ProductList = ({ cart, setCart }) => {
             draggable: true,
             progress: undefined,
             theme: "dark",
-            });
+        });
 
     }
 
@@ -78,6 +78,7 @@ export const ProductList = ({ cart, setCart }) => {
                 pauseOnHover
                 theme="dark"
             />
+
             <div className="filter-box">
                 <label>
                     <input
@@ -134,11 +135,8 @@ export const ProductList = ({ cart, setCart }) => {
 
                 <div className="product-grid"><ul>
                     {data.map(product => (
-                        <div
-
-                            className='box'
+                        <div className='box'
                             key={product.id}>
-
                             <Link
                                 to={`/SingleProduct/${product.id}`}
                                 className="product-img">
@@ -146,7 +144,6 @@ export const ProductList = ({ cart, setCart }) => {
                                 <img src={product.imageUrl} alt="product-image" />
                             </Link>
                             <h3>{product.name}</h3>
-
                             <p className='price'>₹ {product.price}</p>
                             <button
                                 onClick={() => addToCart(product.id, product.title, product.price, product.imageUrl, product.details)}

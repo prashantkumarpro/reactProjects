@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { products } from '../ProductList/data'
 import './SingleProduct.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
-
-const SingleProduct = () => {
+const SingleProduct = ({ cart, setCart }) => {
     const { id } = useParams()
 
     const [product, setProduct] = useState({})
@@ -13,7 +14,7 @@ const SingleProduct = () => {
     const [relatedProduct, setRelatedProduct] = useState([])
 
 
-  
+
 
     useEffect(() => {
 
@@ -27,15 +28,42 @@ const SingleProduct = () => {
         // console.log(filterBrandName)
         setRelatedProduct(filterBrandName)
 
-      
+
     }, [id, product.brand])
 
+    const addToCart = (id, title, price, imageUrl, details) => {
+        const obj = {
+            id, title, price, imageUrl, details
+        }
+        setCart([...cart, obj])
+        toast.success('item added!', {
+            position: "top-right",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
 
+    }
 
 
     return (
         <>
-
+            <ToastContainer
+                position="top-right"
+                autoClose={1500}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
             <div className='product-con'>
                 <div className="box">
                     <div className="product-img">
@@ -47,28 +75,33 @@ const SingleProduct = () => {
                     <h3>{product.name}</h3>
                     <p className='detail'>{product.details}</p>
                     <p className='price'>₹ {product.price}</p>
-                    <button>Add to Cart</button>
+                    <button
+                        onClick={() => addToCart(product.id, product.title, product.price, product.imageUrl, product.details)}
+                    >Add to Cart</button>
                 </div>
             </div>
-        
+
 
 
             <div className="product-grid">
                 <h2 className='same-brands'>Same Mobiles Brand</h2>
                 <ul>
                     {relatedProduct.map(product => (
-                        <Link
-                            to={`/SingleProduct/${product.id}`}
+                        <div
                             className='box'
                             key={product.id}>
-                            <div className="product-img">
+                            <Link
+                                to={`/SingleProduct/${product.id}`}
+                                className="product-img">
                                 <img src={product.imageUrl} alt="product-image" />
-                            </div>
+                            </Link>
                             <h3>{product.name}</h3>
 
                             <p className='price'>₹ {product.price}</p>
-                            <button>Add to Cart</button>
-                        </Link >
+                            <button
+                                onClick={() => addToCart(product.id, product.title, product.price, product.imageUrl, product.details)}
+                            >Add to Cart</button>
+                        </div >
                     ))}</ul></div>
         </>
 
