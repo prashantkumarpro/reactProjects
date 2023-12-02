@@ -20,9 +20,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout setData={setData}/>} >
           <Route index element={<Home />} />
-          <Route path="Mobile" element={<ProductList />} />
+          <Route path="Mobile" element={<ProductList item={data} />} />
           <Route path="SingleProduct/:id" element={<SingleProduct />} />
-          <Route path="Result/:queryResult" element={<Result data={data}/>} />
+          <Route path="Result/:queryResult" element={<Result/>} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

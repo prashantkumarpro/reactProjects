@@ -2,27 +2,22 @@ import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import logo from './amazon_logo.png'
 import { Link, useNavigate } from 'react-router-dom'
-import { products } from '../ProductList/data'
+// import { products } from '../ProductList/data'
 
-const Navbar = ({ setData }) => {
+const Navbar = () => {
 
     const [query, setQuery] = useState('')
-    const [filterData, setFilterData] = useState([])
+
     const navigte = useNavigate()
-
-
-
-    useEffect(() => {
-        const filteredQuery = products.filter((product) => product.name.toLowerCase().indexOf(query.toLowerCase()) !== -1)
-        setData(filteredQuery)
-        setFilterData(filteredQuery)
-        console.log(filteredQuery)
-
-    }, [query])
 
     const submitHendlar = (e) => {
         e.preventDefault()
-        navigte(`/Result/queryResult${filterData}`)
+        navigte(`/Result/${query}`) 
+    }
+
+    const searchHendlar = ()=>{
+        navigte(`/Result/${query}`)
+       
     }
 
     return (
@@ -57,7 +52,9 @@ const Navbar = ({ setData }) => {
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
                         />
-                        <div className="search-box">
+                        <div
+                        onClick={searchHendlar}
+                        className="search-box">
                             <i class="ri-search-line"></i>
                         </div>
                     </form>
