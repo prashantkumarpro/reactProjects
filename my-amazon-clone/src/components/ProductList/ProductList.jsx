@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import './ProductList.css'
 import { products } from './data';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-
-export const ProductList = () => {
+export const ProductList = ({ cart, setCart }) => {
 
     const [data, setData] = useState(products)
     const [searchQuery, setSearchQuery] = useState('')
@@ -12,7 +13,7 @@ export const ProductList = () => {
     const [filterAmount, setFilterAmount] = useState(null)
     const [filterColer, setFilterColor] = useState('')
 
-
+    const notify = () => toast("Wow so easy!");
     useEffect(() => {
 
         if (searchQuery) {
@@ -42,13 +43,41 @@ export const ProductList = () => {
             setData(() => products)
         }
 
+        console.log('Cart element ', cart)
+    }, [brandName, products, filterAmount, filterColer, searchQuery, cart])
 
-    }, [brandName, products, filterAmount, filterColer, searchQuery])
+    const addToCart = (id, title, price, imageUrl, details) => {
+        const obj = {
+            id, title, price, imageUrl, details
+        }
+        setCart([...cart, obj])
+        toast.success('item added!', {
+            position: "top-right",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
 
-
+    }
 
     return (
         <section>
+            <ToastContainer
+                position="top-right"
+                autoClose={1500}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
             <div className="filter-box">
                 <label>
                     <input
@@ -105,19 +134,24 @@ export const ProductList = () => {
 
                 <div className="product-grid"><ul>
                     {data.map(product => (
-                        <Link
-                            to={`/SingleProduct/${product.id}`}
+                        <div
+
                             className='box'
                             key={product.id}>
 
-                            <div className="product-img">
+                            <Link
+                                to={`/SingleProduct/${product.id}`}
+                                className="product-img">
+
                                 <img src={product.imageUrl} alt="product-image" />
-                            </div>
+                            </Link>
                             <h3>{product.name}</h3>
 
                             <p className='price'>₹ {product.price}</p>
-                            <button>Add to Cart</button>
-                        </Link >
+                            <button
+                                onClick={() => addToCart(product.id, product.title, product.price, product.imageUrl, product.details)}
+                            >Add to Cart</button>
+                        </div >
                     ))}
                 </ul></div>
 

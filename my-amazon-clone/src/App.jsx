@@ -10,19 +10,19 @@ import { products } from './components/ProductList/data.jsx';
 
 const App = () => {
   const [data, setData] = useState([...products]);
+  const [cart, setCart] = useState([])
 
 
- 
 
   return (
 
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout setData={setData}/>} >
+        <Route path="/" element={<Layout setData={setData} cart={cart}/>} >
           <Route index element={<Home />} />
-          <Route path="Mobile" element={<ProductList item={data} />} />
+          <Route path="Mobile" element={<ProductList item={data} cart={cart} setCart={setCart} />} />
           <Route path="SingleProduct/:id" element={<SingleProduct />} />
-          <Route path="Result/:queryResult" element={<Result/>} />
+          <Route path="Result/:queryResult" element={<Result />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

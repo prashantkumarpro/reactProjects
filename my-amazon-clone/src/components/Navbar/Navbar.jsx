@@ -4,7 +4,7 @@ import logo from './amazon_logo.png'
 import { Link, useNavigate } from 'react-router-dom'
 // import { products } from '../ProductList/data'
 
-const Navbar = () => {
+const Navbar = ({cart}) => {
 
     const [query, setQuery] = useState('')
 
@@ -77,9 +77,9 @@ const Navbar = () => {
                         <div className="nav-cart">
 
                             <span className="icon">
-                                <div className="number-of-item">0</div>
+                                <div className="number-of-item">{cart.length}</div>
                                 <i class="ri-shopping-cart-line"></i></span>
-                            <span className='cart'>Cart</span>
+                            <span className='cart'></span>
                         </div>
                     </div>
                 </div>
