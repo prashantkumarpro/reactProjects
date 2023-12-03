@@ -2,7 +2,7 @@ import Navbar from './components/Navbar/Navbar';
 import { Outlet } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 
-function Layout({ setData,cart }) {
+function Layout({ setData, cart, data }) {
 
 
 
@@ -10,7 +10,7 @@ function Layout({ setData,cart }) {
     <>
 
       <Navbar setData={setData} cart={cart} />
-      <Outlet />
+      <Outlet data={data} />
       <Footer />
     </>
   )

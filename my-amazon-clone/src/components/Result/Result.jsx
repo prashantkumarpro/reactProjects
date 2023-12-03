@@ -80,6 +80,7 @@ const Result = ({ cart, setCart }) => {
           ))}
         </ul></div>) : (
         <p>Products not found</p>
+        
       )}
 
     </>
