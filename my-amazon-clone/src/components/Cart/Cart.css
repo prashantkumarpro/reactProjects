@@ -54,3 +54,12 @@
     margin-left: 20px;
     margin-bottom: 20px;
 }
+.empty-cart-con{
+    margin: 0 auto;
+    width: 50%;
+    height: 80vh;
+    margin-top: 3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}

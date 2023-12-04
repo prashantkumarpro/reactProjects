@@ -59,28 +59,34 @@ const Result = ({ cart, setCart }) => {
         theme="dark"
       />
       {filterData.length > 0 ? (
-        <div className="product-grid"><ul>
-          {filterData.map(product => (
-            <div
-              className='box'
-              key={product.id}>
+        <div className="product-grid">
+          <h3 style={{
+            textAlign: 'center', 
+            marginTop:'25px',
+            fontSize:'35px'
+          }}>Results</h3>
+          <ul>
+            {filterData.map(product => (
+              <div
+                className='box'
+                key={product.id}>
 
-              <Link
-                to={`/SingleProduct/${product.id}`}
-                className="product-img">
-                <img src={product.imageUrl} alt="product-image" />
-              </Link>
-              <h3>{product.name}</h3>
+                <Link
+                  to={`/SingleProduct/${product.id}`}
+                  className="product-img">
+                  <img src={product.imageUrl} alt="product-image" />
+                </Link>
+                <h3>{product.name}</h3>
 
-              <p className='price'>₹ {product.price}</p>
-              <button
-                onClick={() => addToCart(product.id, product.title, product.price, product.imageUrl, product.details)}
-              >Add to Cart</button>
-            </div >
-          ))}
-        </ul></div>) : (
+                <p className='price'>₹ {product.price}</p>
+                <button
+                  onClick={() => addToCart(product.id, product.title, product.price, product.imageUrl, product.details)}
+                >Add to Cart</button>
+              </div >
+            ))}
+          </ul></div>) : (
         <p>Products not found</p>
-        
+
       )}
 
     </>

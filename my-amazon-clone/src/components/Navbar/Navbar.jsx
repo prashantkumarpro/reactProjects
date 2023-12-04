@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './Navbar.css'
 import logo from './amazon_logo.png'
 import { Link, useNavigate } from 'react-router-dom'
 // import { products } from '../ProductList/data'
 
-const Navbar = ({cart}) => {
+const Navbar = ({ cart }) => {
 
     const [query, setQuery] = useState('')
 
@@ -12,12 +12,12 @@ const Navbar = ({cart}) => {
 
     const submitHendlar = (e) => {
         e.preventDefault()
-        navigte(`/Result/${query}`) 
+        navigte(`/Result/${query}`)
     }
 
-    const searchHendlar = ()=>{
+    const searchHendlar = () => {
         navigte(`/Result/${query}`)
-       
+
     }
 
     return (
@@ -32,7 +32,7 @@ const Navbar = ({cart}) => {
                         </Link>
                         <div className="nav-location">
                             <div className="locatin-icon">
-                                <i class="ri-map-pin-line"></i>
+                                <i className="ri-map-pin-line"></i>
                             </div>
                             <div className="address">
                                 <span className='line-1'>Divliver to Prashant</span>
@@ -53,9 +53,9 @@ const Navbar = ({cart}) => {
                             onChange={(e) => setQuery(e.target.value)}
                         />
                         <div
-                        onClick={searchHendlar}
-                        className="search-box">
-                            <i class="ri-search-line"></i>
+                            onClick={searchHendlar}
+                            className="search-box">
+                            <i className="ri-search-line"></i>
                         </div>
                     </form>
 
@@ -75,11 +75,11 @@ const Navbar = ({cart}) => {
                             <span className='line-2'>& Oreder</span>
                         </div>
                         <Link
-                        to="/Cart"
-                        className="nav-cart">
+                            to="/Cart"
+                            className="nav-cart">
                             <span className="icon">
                                 <div className="number-of-item">{cart.length}</div>
-                                <i class="ri-shopping-cart-line"></i></span>
+                                <i className="ri-shopping-cart-line"></i></span>
                             <span className='cart'></span>
                         </Link>
                     </div>
