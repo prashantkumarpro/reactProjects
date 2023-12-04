@@ -88,7 +88,7 @@ const Navbar = ({ cart }) => {
             </nav>
             <div className="nav-part2">
                 <div className="left">
-                    <i class="ri-menu-line"></i>
+                    <i className="ri-menu-line"></i>
                     <h3>All</h3>
                 </div>
                 <div className="shop-container">

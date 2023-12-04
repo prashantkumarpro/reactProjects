@@ -5,6 +5,7 @@ import { products } from '../ProductList/data';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useDataContext } from '../ProductContext/ProductContext';
 
 const Result = ({ cart, setCart }) => {
   const [filterData, setFilterData] = useState([])
@@ -43,7 +44,7 @@ const Result = ({ cart, setCart }) => {
     });
 
   }
-
+const myName = useDataContext()
   return (
     <>
       <ToastContainer
@@ -60,11 +61,11 @@ const Result = ({ cart, setCart }) => {
       />
       {filterData.length > 0 ? (
         <div className="product-grid">
-          <h3 style={{
-            textAlign: 'center', 
-            marginTop:'25px',
-            fontSize:'35px'
-          }}>Results</h3>
+          <h1 style={{
+            textAlign: 'left',
+            margin: '20px',
+            fontSize: '25px'
+          }}> {myName}</h1>
           <ul>
             {filterData.map(product => (
               <div
@@ -85,7 +86,26 @@ const Result = ({ cart, setCart }) => {
               </div >
             ))}
           </ul></div>) : (
-        <p>Products not found</p>
+        <div style={{
+          width: '100%',
+          height: '100vh',
+          margin: '20px'
+        }}>
+          <h1
+            style={{
+              textAlign: 'left',
+              fontSize: '25px'
+            }}>Result:
+
+          </h1>
+          <p style={{
+
+            marginTop: '10px',
+            textAlign: 'left',
+            fontSize: '19px'
+          }}>Products not found</p>
+        </div>
+
 
       )}
 
