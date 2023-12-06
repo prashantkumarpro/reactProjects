@@ -65,7 +65,7 @@ const myName = useDataContext()
             textAlign: 'left',
             margin: '20px',
             fontSize: '25px'
-          }}> {myName}</h1>
+          }}>{myName}:</h1>
           <ul>
             {filterData.map(product => (
               <div
