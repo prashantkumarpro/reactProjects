@@ -1,27 +1,35 @@
-import { createContext, useContext, useState } from "react";
-import { useEffect } from "react";
+import { createContext, useContext, useState, useReducer, useEffect } from "react";
+import reducer from '../ProductReducer/ProductReducer'
 
 // Create the data Context 
 const DataContext = createContext()
 
+const initialState = {
+    products: [],
+    isLoading: true,
+    isError: false
+}
 // data provider
-
 export const DataProvider = ({ children }) => {
-    const myName = 'Results';
-const [data, setData] = useState([])
 
+    const [data, setData] = useState([])
+    const [state, dispatch] = useReducer(reducer, initialState)
+//    console.log('api data store in data ' , data)
     useEffect(() => {
         // data fetching here
         fetch('https://fakestoreapi.com/products')
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                setData(data);
-            } )
-            .catch(error => console.log(error.message))
+                const products = data;
+                setData(products);
+                dispatch({ type: 'MY_API_DATA', payload: products })
+            })
+            .catch(error => dispatch({type: 'API_ERROR'}))
     }, []);
+
+
     return (
-        <DataContext.Provider value={myName}>
+        <DataContext.Provider value={{ ...state }}>
             {children}
         </DataContext.Provider>
     )

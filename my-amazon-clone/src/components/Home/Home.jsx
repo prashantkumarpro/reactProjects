@@ -1,30 +1,33 @@
-import React, { useReducer } from 'react'
-import './Home.css'
-
-
-const reducer = (state, action) => {
-  if (action.type === 'increment') {
-    return state + 1
-
-  }
-  if (action.type === 'dicrement') {
-    return state- 1
-  }
-}
-
+import React from 'react';
+import './Home.css';
+import { useDataContext } from '../ProductContext/ProductContext';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const initialValue = 0;
-
-  const [state, dispatch] = useReducer(reducer, initialValue)
+  const { products, isError } = useDataContext();
+  console.log(products);
 
   return (
-    <div className='home-container'>
-      <p style={{ color: 'white', fontSize: '45px', margin: '55px', position: "absolute" }}>{state}</p>
-      <button onClick={() => dispatch({ type: 'increment' })}>inc</button>
-      <button onClick={() => dispatch({ type: 'dicrement' })}>dic</button>
-    </div>
-  )
-}
+    <>
+      <div className='home-container'></div>
+      <div className='product-grid'>
+        <ul>
+          {products.map(product => (
+            <li key={product.id}>
+              <div className='box'>
+                <Link to={`/SingleProduct/${product.id}`} className='product-img'>
+                  <img src={product.image} alt='product-image' />
+                </Link>
+                <h3>{product.category}</h3>
+                <p>{product.title}</p>
+                <p className='price'>₹ {product.price}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+};
 
-export default Home
+export default Home;

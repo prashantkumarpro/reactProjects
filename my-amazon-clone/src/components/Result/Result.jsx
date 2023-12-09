@@ -44,7 +44,7 @@ const Result = ({ cart, setCart }) => {
     });
 
   }
-const myName = useDataContext()
+  const myName = useDataContext()
   return (
     <>
       <ToastContainer
