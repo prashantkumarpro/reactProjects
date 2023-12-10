@@ -5,7 +5,7 @@ import { products } from '../ProductList/data';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useDataContext } from '../ProductContext/ProductContext';
+
 
 const Result = ({ cart, setCart }) => {
   const [filterData, setFilterData] = useState([])
@@ -44,7 +44,7 @@ const Result = ({ cart, setCart }) => {
     });
 
   }
-  const myName = useDataContext()
+
   return (
     <>
       <ToastContainer
@@ -65,7 +65,7 @@ const Result = ({ cart, setCart }) => {
             textAlign: 'left',
             margin: '20px',
             fontSize: '25px'
-          }}>{myName}:</h1>
+          }}>Result:</h1>
           <ul>
             {filterData.map(product => (
               <div

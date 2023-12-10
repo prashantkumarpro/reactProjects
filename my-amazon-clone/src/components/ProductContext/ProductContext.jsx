@@ -14,9 +14,10 @@ export const DataProvider = ({ children }) => {
 
     const [data, setData] = useState([])
     const [state, dispatch] = useReducer(reducer, initialState)
-//    console.log('api data store in data ' , data)
+    //    console.log('api data store in data ' , data)
     useEffect(() => {
         // data fetching here
+        dispatch({ type: 'API_LOADING' })
         fetch('https://fakestoreapi.com/products')
             .then(res => res.json())
             .then(data => {
@@ -24,7 +25,7 @@ export const DataProvider = ({ children }) => {
                 setData(products);
                 dispatch({ type: 'MY_API_DATA', payload: products })
             })
-            .catch(error => dispatch({type: 'API_ERROR'}))
+            .catch(error => dispatch({ type: 'API_ERROR' }))
     }, []);
 
 

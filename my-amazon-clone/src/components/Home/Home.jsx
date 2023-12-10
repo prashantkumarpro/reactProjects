@@ -4,21 +4,36 @@ import { useDataContext } from '../ProductContext/ProductContext';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const { products, isError } = useDataContext();
+  const { isLoading, products } = useDataContext();
   console.log(products);
 
   return (
     <>
-      <div className='home-container'></div>
+
+      <div className='home-container'>
+       
+
+      </div>
+      <div className="card-con">
+        <div className="card">
+          <div className="box">1</div>
+          <div className="box">2</div>
+          <div className="box">3</div>
+          <div className="box">4</div>
+        </div>
+        <div className="card">box2</div>
+        <div className="card">box3</div>
+        </div>
       <div className='product-grid'>
         <ul>
+          {(isLoading) ? <h2>loading...</h2> : ''}
           {products.map(product => (
             <li key={product.id}>
-              <div className='box'>
+              <div className='box' style={{ backgroundColor: '#fffff' }}>
                 <Link to={`/SingleProduct/${product.id}`} className='product-img'>
                   <img src={product.image} alt='product-image' />
                 </Link>
-                <h3>{product.category}</h3>
+
                 <p>{product.title}</p>
                 <p className='price'>₹ {product.price}</p>
               </div>
