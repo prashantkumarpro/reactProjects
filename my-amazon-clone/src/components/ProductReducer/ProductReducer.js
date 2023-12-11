@@ -11,12 +11,20 @@ const ProductReducer = (state, action) => {
         isLoading: true
       };
 
+
+
     case "MY_API_DATA":
+
+    const mensData = action.payload.filter(product => {
+      return product.category === "men's clothing";
+    });
+
       return {
         ...state,
         products: action.payload, // Update the products array with the new data
         isError: false, // Reset the error state when data is successfully fetched
         isLoading: false,
+        mensCloths: mensData
       };
 
     case "API_ERROR":
