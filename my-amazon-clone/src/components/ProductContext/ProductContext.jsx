@@ -8,7 +8,8 @@ const initialState = {
     products: [],
     isLoading: true,
     isError: false,
-    mensCloths: []
+    mensCloths: [],
+    singleProduct:{}
 }
 // data provider
 export const DataProvider = ({ children }) => {
@@ -20,6 +21,7 @@ export const DataProvider = ({ children }) => {
     useEffect(() => {
         // data fetching here
         dispatch({ type: 'API_LOADING' })
+
 
         fetch('https://fakestoreapi.com/products')
             .then(res => res.json())

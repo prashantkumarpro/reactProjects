@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const SingleProduct = ({ cart, setCart }) => {
     const { id } = useParams()
-
+  
     const [product, setProduct] = useState({})
 
     const [relatedProduct, setRelatedProduct] = useState([])
