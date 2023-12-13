@@ -3,7 +3,6 @@ const ProductReducer = (state, action) => {
 
   switch (action.type) {
 
-
     case "API_LOADING":
       return {
         ...state,
@@ -11,13 +10,11 @@ const ProductReducer = (state, action) => {
         isLoading: true
       };
 
-
-
     case "MY_API_DATA":
 
-    const mensData = action.payload.filter(product => {
-      return product.category === "men's clothing";
-    });
+      const mensData = action.payload.filter(product => {
+        return product.category === "men's clothing";
+      });
 
       return {
         ...state,
@@ -32,6 +29,15 @@ const ProductReducer = (state, action) => {
         ...state,
         isError: true,
       };
+    case "SINGLE_PRODUCT_DATA":
+
+      return {
+        ...state,
+        isError:false,
+        isLoading:false,
+        singleProduct: action.payload
+      }
+
 
     default:
       return state;

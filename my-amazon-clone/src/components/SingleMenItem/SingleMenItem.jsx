@@ -5,19 +5,19 @@ import { useParams } from 'react-router-dom'
 
 const SingleMenItem = () => {
     const { menId } = useParams()
-    const { mensCloths } = useDataContext()
-    const [item, setItem] = useState({})
-    const filterItem = mensCloths.filter((item) => item.id === menId)
-    console.log(filterItem)
+    const { fetchSingleProduct, singleProduct } = useDataContext()
+
+    const API = 'https://fakestoreapi.com/products'
+
     useEffect(() => {
-        setItem(filterItem)
-    }, [])
+        fetchSingleProduct(`${API}SingleMenItem/${menId}`)
+    }, [menId])
 
 
     return (
         <>
             <div className="con">
-                <h2>{item.name}  </h2>
+                <h2>{menId} </h2>
             </div>
         </>
     )
