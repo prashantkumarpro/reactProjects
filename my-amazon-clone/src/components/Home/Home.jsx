@@ -17,7 +17,7 @@ const Home = () => {
           <h3 style={{ textAlign: 'center', fontSize: '18px', marginTop: '5px' }}>Men's clothing</h3>
           <div className="boxes">
             {mensCloths.map(menCloth => (
-              <Link to={`/SingleMenItem/${menCloth.id}`} className="box" key={menCloth.id}>
+              <Link to={`/SingleProductPage/ID=${menCloth.id}`} className="box" key={menCloth.id}>
                 <img src={menCloth.image} alt={menCloth.name} />
               </Link>
             ))}
@@ -33,7 +33,7 @@ const Home = () => {
           {products.map(product => (
             <li key={product.id}>
               <div className='box' style={{ backgroundColor: '#fffff' }}>
-                <Link to={`/SingleProduct/${product.id}`} className='product-img'>
+                <Link to={`/SingleProductPage/${product.id}`} className='product-img'>
                   <img src={product.image} alt='product-image' />
                 </Link>
 

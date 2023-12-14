@@ -29,14 +29,29 @@ const ProductReducer = (state, action) => {
         ...state,
         isError: true,
       };
-    case "SINGLE_PRODUCT_DATA":
 
+    case "SINGLE_API_LOADING":
       return {
         ...state,
-        isError:false,
-        isLoading:false,
-        singleProduct: action.payload
+        isError: false,
+        isSingleLoading: true
+        // Inside your reducer
+
       }
+      console.log("Action:", action);
+    case 'SINGLE_PRODUCT_DATA':
+      return {
+        ...state,
+        singleProduct: action.payload,
+        isSingleLoading: false,
+        isSingleError: false,
+      };
+    case "SINGLE_API_ERROR":
+      return {
+        ...state,
+        isSingleError: true,
+        isSingleLoading: false,
+      };
 
 
     default:

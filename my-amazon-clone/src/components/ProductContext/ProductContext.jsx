@@ -10,37 +10,44 @@ const initialState = {
     isLoading: true,
     isError: false,
     mensCloths: [],
-    singleProduct: {}
+    isSingleLoading: true,
+    singleProduct: {},
+    isSingleError: false,
 }
 // data provider
 export const DataProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     const API = 'https://fakestoreapi.com/products'
-    // get all products
-    const fetchProducts = async () => {
+
+    //API CALL for get all products
+    const fetchProducts = async (url) => {
         try {
             dispatch({ type: 'API_LOADING' }); // Dispatch loading before the API call
-            const response = await fetch(API);
+            const response = await fetch(url);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             const products = await response.json()
+
             dispatch({ type: 'MY_API_DATA', payload: products })
         } catch (error) {
             dispatch({ type: 'API_ERROR' })
+            console.log(error)
         }
     }
 
-    // get single product
+    //2nd API CALL for get single product
 
-    const fetchSingleProduct = async () => {
+    const fetchSingleProduct = async (url) => {
+        dispatch({ type: 'SINGLE_API_LOADING' }); // Dispatch loading before the API call
         try {
-            const response = await fetch(API)
+            const response = await fetch(url)
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             const singleProduct = await response.json()
+            console.log("Single Product:", singleProduct);
             dispatch({ type: 'SINGLE_PRODUCT_DATA', payload: singleProduct });
         } catch (error) {
             dispatch({ type: 'SINGLE_API_ERROR' })
@@ -48,14 +55,15 @@ export const DataProvider = ({ children }) => {
     }
     useEffect(() => {
         // Call the fetchProducts function
-        fetchProducts()
-    }, []);
+        fetchProducts(API)
+    }, [API]);
 
-    const contextValue = { ...state, fetchProducts, fetchSingleProduct }
+    // const contextValue = { ...state,  fetchSingleProduct }
 
     return (
-        <DataContext.Provider value={contextValue}>
+        <DataContext.Provider value={{ ...state, fetchSingleProduct }}>
             {children}
+          
         </DataContext.Provider>
     )
 }
