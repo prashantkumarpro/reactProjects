@@ -47,7 +47,7 @@ export const DataProvider = ({ children }) => {
                 throw new Error('Network response was not ok');
             }
             const singleProduct = await response.json()
-            console.log("Single Product:", singleProduct);
+            // console.log("Single Product:", singleProduct);
             dispatch({ type: 'SINGLE_PRODUCT_DATA', payload: singleProduct });
         } catch (error) {
             dispatch({ type: 'SINGLE_API_ERROR' })

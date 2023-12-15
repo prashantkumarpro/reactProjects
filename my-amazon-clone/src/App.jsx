@@ -27,7 +27,7 @@ const App = () => {
           <Route path="SingleProduct/:id" element={<SingleProduct cart={cart} setCart={setCart} />} />
           <Route path="Result/:queryResult" element={<Result cart={cart} setCart={setCart} data={data} />} />
           <Route path="Cart" element={<Cart cart={cart} setCart={setCart} />} />
-          <Route path="/SingleProductPage/:ProductId" element={<SingleProductPage />} />
+          <Route path="/SingleProductPage/:ProductId" element={<SingleProductPage  cart={cart} setCart={setCart} />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

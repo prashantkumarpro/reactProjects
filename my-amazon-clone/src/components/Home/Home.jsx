@@ -17,7 +17,9 @@ const Home = () => {
           <h3 style={{ textAlign: 'center', fontSize: '18px', marginTop: '5px' }}>Men's clothing</h3>
           <div className="boxes">
             {mensCloths.map(menCloth => (
-              <Link to={`/SingleProductPage/ID=${menCloth.id}`} className="box" key={menCloth.id}>
+              <Link to={`/SingleProductPage/${menCloth.id}`}
+                className="box"
+                key={menCloth.id}>
                 <img src={menCloth.image} alt={menCloth.name} />
               </Link>
             ))}

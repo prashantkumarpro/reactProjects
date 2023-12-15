@@ -38,7 +38,7 @@ const ProductReducer = (state, action) => {
         // Inside your reducer
 
       }
-      console.log("Action:", action);
+      
     case 'SINGLE_PRODUCT_DATA':
       return {
         ...state,
