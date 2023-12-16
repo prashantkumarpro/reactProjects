@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useDataContext } from '../ProductContext/ProductContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Stars from '../Stars/Stars';
 
 const SingleProductPage = ({ cart, setCart }) => {
   const { ProductId } = useParams()
@@ -23,8 +24,10 @@ const SingleProductPage = ({ cart, setCart }) => {
     price,
     title,
     rating } = singleProduct
+  // Check if rating is defined before destructuring
+  const { rate, count } = rating || {};
 
-  { (isSingleLoading) ? <h2>loading...</h2> : "" }
+
   const addToCart = (id, title, price, imageUrl, details) => {
     const obj = {
       id, title, price, imageUrl, details
@@ -40,10 +43,14 @@ const SingleProductPage = ({ cart, setCart }) => {
       progress: undefined,
       theme: "dark",
     });
-
   }
+
+
+
   return (
     <>
+
+
       <ToastContainer
         position="top-right"
         autoClose={1500}
@@ -56,7 +63,9 @@ const SingleProductPage = ({ cart, setCart }) => {
         pauseOnHover
         theme="dark"
       />
+      {isSingleLoading && <h2>loading...</h2>}
       <div className='product-con'>
+
         <div className="box">
           <div className="product-img">
             <img src={image} alt="product-image" />
@@ -65,6 +74,7 @@ const SingleProductPage = ({ cart, setCart }) => {
         </div>
         <div className="product-des">
           <h3>{title}</h3>
+          <Stars stars={rate} reviews={count}/>
           <p className='detail'>{description}</p>
           <p className='price'>₹ {price}</p>
           <button

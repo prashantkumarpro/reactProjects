@@ -9,6 +9,7 @@ import Result from './components/Result/Result.jsx';
 import { products } from './components/ProductList/data.jsx';
 import Cart from './components/Cart/Cart.jsx';
 import SingleProductPage from './components/SingleProductPage/SingleProductPage.jsx';
+import Stars from './components/Stars/Stars.jsx';
 
 
 const App = () => {
@@ -27,8 +28,10 @@ const App = () => {
           <Route path="SingleProduct/:id" element={<SingleProduct cart={cart} setCart={setCart} />} />
           <Route path="Result/:queryResult" element={<Result cart={cart} setCart={setCart} data={data} />} />
           <Route path="Cart" element={<Cart cart={cart} setCart={setCart} />} />
-          <Route path="/SingleProductPage/:ProductId" element={<SingleProductPage  cart={cart} setCart={setCart} />} />
+          <Route path="/SingleProductPage/:ProductId" element={<SingleProductPage cart={cart} setCart={setCart} />} />
+          <Route path="/Stars" element={<Stars />} />
           <Route path="*" element={<ErrorPage />} />
+
         </Route>
       </Routes>
     </BrowserRouter>

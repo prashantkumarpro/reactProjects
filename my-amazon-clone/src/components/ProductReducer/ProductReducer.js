@@ -33,10 +33,8 @@ const ProductReducer = (state, action) => {
     case "SINGLE_API_LOADING":
       return {
         ...state,
-        isError: false,
+        isSingleError: false,
         isSingleLoading: true
-        // Inside your reducer
-
       }
       
     case 'SINGLE_PRODUCT_DATA':

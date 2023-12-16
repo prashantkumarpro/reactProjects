@@ -29,6 +29,7 @@ const Home = () => {
         <div className="card">box2</div>
         <div className="card">box3</div>
       </div>
+      
       {(isLoading) ? <h2>loading...</h2> : ''}
       <div className='product-grid'>
         <ul>

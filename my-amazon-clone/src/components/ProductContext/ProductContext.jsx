@@ -1,7 +1,9 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import reducer from '../ProductReducer/ProductReducer'
 
-
+{
+    
+}
 // Create the data Context 
 const DataContext = createContext()
 
@@ -29,7 +31,7 @@ export const DataProvider = ({ children }) => {
                 throw new Error('Network response was not ok');
             }
             const products = await response.json()
-
+            console.log(products)
             dispatch({ type: 'MY_API_DATA', payload: products })
         } catch (error) {
             dispatch({ type: 'API_ERROR' })
@@ -63,7 +65,7 @@ export const DataProvider = ({ children }) => {
     return (
         <DataContext.Provider value={{ ...state, fetchSingleProduct }}>
             {children}
-          
+
         </DataContext.Provider>
     )
 }
