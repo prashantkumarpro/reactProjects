@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './SingleProductPage.css'
 import { useParams } from 'react-router-dom'
-import { useDataContext } from '../ProductContext/ProductContext';
+import { useDataContext } from '../Context/ProductContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Stars from '../Stars/Stars';
@@ -24,6 +24,7 @@ const SingleProductPage = ({ cart, setCart }) => {
     price,
     title,
     rating } = singleProduct
+    
   // Check if rating is defined before destructuring
   const { rate, count } = rating || {};
 

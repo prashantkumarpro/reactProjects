@@ -89,7 +89,7 @@ const Navbar = ({ cart }) => {
             <div className="nav-part2">
                 <div className="left">
                     <i className="ri-menu-line"></i>
-                    <h3>All</h3>
+                    <Link to="/Product">All</Link>
                 </div>
                 <div className="shop-container">
                     <ul className="shop-link">
