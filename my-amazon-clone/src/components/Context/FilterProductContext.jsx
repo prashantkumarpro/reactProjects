@@ -1,4 +1,4 @@
-import React, {  createContext, useContext, useEffect, useReducer } from 'react'
+import React, { createContext, useContext, useEffect, useReducer } from 'react'
 import { useDataContext } from './ProductContext'
 import reducer from '../ProductReducer/FilterDataReducer'
 
@@ -10,7 +10,8 @@ export const FilterDataContext = createContext()
 
 const initialState = {
     filter_data: [],
-    all_data: []
+    all_data: [],
+    sortItem:[]
 }
 
 
@@ -21,14 +22,12 @@ export const FilterDataProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(reducer, initialState)
     const { products } = useDataContext()
-
-    const { filterData } = products;
-    console.log(filterData)
-    dispatch({ type: 'FILTER_DATA', payload: products })
+    
 
     useEffect(() => {
-
-    }, [])
+        dispatch({ type: 'FILTER_DATA', payload:products })
+        
+    }, [products])
 
 
 
