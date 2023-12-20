@@ -5,7 +5,9 @@ import { useFilterDataContext } from '../Context/FilterProductContext'
 
 
 const ProductList = () => {
-  const { filter_data, sortItem } = useFilterDataContext()
+  const { filter_data, sortBy } = useFilterDataContext()
+
+
 
 
 
@@ -55,15 +57,14 @@ const ProductList = () => {
           </div>
           <div className='product-grid'>
             <div className="header">
-
               <p>{filter_data.length} products total</p>
               <div className="sort-con">
-                <label for="sortKey">sort by: </label>
-                <select id="sortKey">
-                  <option value="sort by" selected disabled>select</option>
+                <label htmlFor="sortKey">sort by: </label>
+                <select id="sortKey" onChange={sortBy}>
+                  <option value=""  >select</option>
                   <option value="name">name</option>
                   <option value="price low to high"> price low to high</option>
-                  <option value="price high to lo">price high to low</option>
+                  <option value="price high to low">price high to low</option>
                 </select>
               </div>
 

@@ -11,7 +11,7 @@ export const FilterDataContext = createContext()
 const initialState = {
     filter_data: [],
     all_data: [],
-    sortItem:[]
+    sortData: 'name'
 }
 
 
@@ -22,18 +22,27 @@ export const FilterDataProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(reducer, initialState)
     const { products } = useDataContext()
-    
+
+    // sorting function
+
+    const sortBy = (event) => {
+        const sortValue = event.target.value;
+        console.log(sortValue)
+        dispatch({ type: "SORT_FILTER_DATA", payload: sortValue })
+    }
+
+
 
     useEffect(() => {
-        dispatch({ type: 'FILTER_DATA', payload:products })
-        
+        dispatch({ type: 'FILTER_DATA', payload: products })
+
     }, [products])
 
 
 
 
 
-    return (<  FilterDataContext.Provider value={{ ...state }}>
+    return (<  FilterDataContext.Provider value={{ ...state, sortBy }}>
         {children}
     </FilterDataContext.Provider>
     )
