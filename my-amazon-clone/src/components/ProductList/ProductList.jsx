@@ -10,7 +10,6 @@ const ProductList = () => {
 
 
 
-
   return (
     <>
       <section>
@@ -61,8 +60,9 @@ const ProductList = () => {
               <div className="sort-con">
                 <label htmlFor="sortKey">sort by: </label>
                 <select id="sortKey" onChange={sortBy}>
-                  <option value=""  >select</option>
-                  <option value="name">name</option>
+                  <option value="" selected disabled >select</option>
+                  <option value="A-Z">A-Z</option>
+                  <option value="Z-A">Z-A</option>
                   <option value="price low to high"> price low to high</option>
                   <option value="price high to low">price high to low</option>
                 </select>

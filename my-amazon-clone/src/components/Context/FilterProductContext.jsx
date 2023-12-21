@@ -11,7 +11,7 @@ export const FilterDataContext = createContext()
 const initialState = {
     filter_data: [],
     all_data: [],
-    sortData: 'name'
+    sortData: 'A-Z'
 }
 
 
@@ -27,7 +27,8 @@ export const FilterDataProvider = ({ children }) => {
 
     const sortBy = (event) => {
         const sortValue = event.target.value;
-        console.log(sortValue)
+        
+        console.log('targeted value :',sortValue)
         dispatch({ type: "SORT_FILTER_DATA", payload: sortValue })
     }
 
