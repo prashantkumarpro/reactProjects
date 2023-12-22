@@ -1,57 +1,42 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './ProductList.css'
 import { Link } from 'react-router-dom';
 import { useFilterDataContext } from '../Context/FilterProductContext'
 
 
 const ProductList = () => {
-  const { filter_data, sortBy } = useFilterDataContext()
+  const { filter_data, sortBy, categoryCon } = useFilterDataContext()
 
-
-
-
+ 
   return (
     <>
       <section>
 
         <div className="grid">
-
           <div className="filter-page">
-            <h2>Filter</h2>
-            <h3>Category</h3>
-            <div className="brand">
-              <h3>Brand</h3>
-              <div className="brand-con">
-                <div className="brand-name hover">All</div>
-                <div className="brand-name hover">Redmi
-                </div>
-                <div className="brand-name hover" >Poco</div>
-                <div className="brand-name hover" >Motorola </div>
-                <div className="brand-name hover">Samsung</div>
+            <h2 style={{ margin: '20px' }}>Filter</h2>
 
+            <div className="brand">
+              <h3>Category</h3>
+              <div className="brand-con" categoryCon={categoryCon}>
+                <div className="brand-name hover">All</div>
+                <div className="brand-name hover">Men's clothing</div>
+                <div className="brand-name hover" >Women's clothing</div>
+                <div className="brand-name hover">Electronics</div>
               </div>
             </div>
 
             <div className="price-filter">
               <h3>Price</h3>
               <div className="price hover">All</div>
-              <div className="price hover"></div>
-              <div className="price hover" ></div>
-              <div className="price hover"></div>
-              <div className="price hover" ></div>
-              <div className="price hover" ></div>
+              <div className="price hover">Under ₹1,000</div>
+              <div className="price hover" >₹1,000 - ₹5,000</div>
+              <div className="price hover">₹5,000 - ₹10,000</div>
+              <div className="price hover" >₹10,000 - ₹20,000</div>
+              <div className="price hover">Over ₹20,000</div>
             </div>
 
-            <div className="color-filter">
-              <h3>Color</h3>
-              <div className="hover" onClick={() => setFilterColor('')}>All</div>
-              <div className="color-box">
-                <div className="box" style={{ backgroundColor: 'blue' }}></div>
-                <div className="box" style={{ backgroundColor: 'Black' }}  ></div>
-                <div className="box" style={{ backgroundColor: 'green' }} ></div>
-                <div className="box" style={{ backgroundColor: 'silver' }} ></div>
-              </div>
-            </div>
+
 
           </div>
           <div className='product-grid'>

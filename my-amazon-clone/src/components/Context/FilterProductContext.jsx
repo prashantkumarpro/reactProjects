@@ -27,9 +27,29 @@ export const FilterDataProvider = ({ children }) => {
 
     const sortBy = (event) => {
         const sortValue = event.target.value;
-        
-        console.log('targeted value :',sortValue)
+
+        console.log('targeted value :', sortValue)
         dispatch({ type: "SORT_FILTER_DATA", payload: sortValue })
+    }
+
+    let categoryConElm;
+    const categoryCon = () => {
+        const element = document.querySelector('.brand-con');
+        categoryConElm = element ? element.childNodes : null;
+        return categoryConElm
+    }
+
+    categoryConElm = categoryCon()
+
+    let selectedValue;
+    if (categoryConElm) {
+        categoryConElm.forEach((value) => {
+            selectedValue = value.addEventListener('click', (e) => {
+                console.log(e.target.textContent)
+            })
+        })
+    } else {
+        console.log('error')
     }
 
 
@@ -39,11 +59,11 @@ export const FilterDataProvider = ({ children }) => {
 
     }, [products])
 
+ 
 
 
 
-
-    return (<  FilterDataContext.Provider value={{ ...state, sortBy }}>
+    return (<  FilterDataContext.Provider value={{ ...state, sortBy, categoryCon }}>
         {children}
     </FilterDataContext.Provider>
     )

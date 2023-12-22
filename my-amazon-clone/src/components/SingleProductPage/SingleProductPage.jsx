@@ -9,7 +9,7 @@ import Stars from '../Stars/Stars';
 const SingleProductPage = ({ cart, setCart }) => {
   const { ProductId } = useParams()
   const { fetchSingleProduct, isSingleLoading, singleProduct } = useDataContext()
-  console.log(singleProduct)
+
   const API = 'https://fakestoreapi.com/products'
 
   useEffect(() => {

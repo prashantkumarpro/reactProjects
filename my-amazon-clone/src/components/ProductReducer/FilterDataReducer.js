@@ -1,4 +1,8 @@
+const sortingData = {
+    AtoZ: 'A-Z',
+    priceLowToHigh: 'price low to high'
 
+}
 
 const FilterDataReducer = (state, action) => {
     switch (action.type) {
