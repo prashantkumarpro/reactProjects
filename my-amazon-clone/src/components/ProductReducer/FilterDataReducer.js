@@ -1,8 +1,4 @@
-const sortingData = {
-    AtoZ: 'A-Z',
-    priceLowToHigh: 'price low to high'
 
-}
 
 const FilterDataReducer = (state, action) => {
     switch (action.type) {
@@ -40,6 +36,42 @@ const FilterDataReducer = (state, action) => {
                 filter_data: sortedData,
                 sortData: action.payload,
             }
+
+            case "SORT_FILTER_CATEGORY":
+                let categoryData = [];
+                const lowerCasePayload = action.payload.toLowerCase(); // Convert payload to lowercase
+    
+                switch (lowerCasePayload) {
+                    case "all":
+                        categoryData = [...state.filter_data];
+                        break;
+                    case "men's clothing":
+                        categoryData = [...state.filter_data].filter(product =>
+                            product.category.toLowerCase() === "men's clothing"
+                        );
+                        break;
+                    case "women's clothing":
+                        categoryData = [...state.filter_data].filter(product =>
+                            product.category.toLowerCase() === "women's clothing"
+                        );
+                        break;
+                    case "electronics":
+                        categoryData = [...state.filter_data].filter(product =>
+                            product.category.toLowerCase() === "electronics"
+                        );
+                        break;
+                    default:
+                        categoryData = state.filter_data;
+                        break;
+                }
+    
+                return {
+                    ...state,
+                    filter_data: categoryData,
+    
+                };
+    
+    
 
         default:
             return state

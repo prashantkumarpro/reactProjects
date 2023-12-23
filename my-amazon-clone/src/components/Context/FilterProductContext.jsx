@@ -32,38 +32,38 @@ export const FilterDataProvider = ({ children }) => {
         dispatch({ type: "SORT_FILTER_DATA", payload: sortValue })
     }
 
-    let categoryConElm;
-    const categoryCon = () => {
-        const element = document.querySelector('.brand-con');
-        categoryConElm = element ? element.childNodes : null;
-        return categoryConElm
-    }
+    // let categoryConElm;
+    // const categoryCon = () => {
+    //     const element = document.querySelector('.brand-con');
+    //     categoryConElm = element ? element.childNodes : null;
+    //     return categoryConElm
+    // }
 
-    categoryConElm = categoryCon()
+    // categoryConElm = categoryCon()
 
-    let selectedValue;
-    if (categoryConElm) {
-        categoryConElm.forEach((value) => {
-            selectedValue = value.addEventListener('click', (e) => {
-                console.log(e.target.textContent)
-            })
-        })
-    } else {
-        console.log('error')
-    }
+    const categories = ['All', "men's clothing", "women's clothing", 'electronics'];
+
+    // Function to handle category click
+    const handleCategoryClick = (category) => {
+        console.log(category);
+        dispatch({ type: "SORT_FILTER_CATEGORY", payload: category })
+
+
+    };
 
 
 
     useEffect(() => {
         dispatch({ type: 'FILTER_DATA', payload: products })
+        console.log(products)
 
     }, [products])
 
- 
+
+    const contextValue = { ...state, sortBy, categories, handleCategoryClick }
 
 
-
-    return (<  FilterDataContext.Provider value={{ ...state, sortBy, categoryCon }}>
+    return (<  FilterDataContext.Provider value={contextValue}>
         {children}
     </FilterDataContext.Provider>
     )

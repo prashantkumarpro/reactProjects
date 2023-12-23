@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './ProductList.css'
 import { Link } from 'react-router-dom';
 import { useFilterDataContext } from '../Context/FilterProductContext'
 
 
 const ProductList = () => {
-  const { filter_data, sortBy, categoryCon } = useFilterDataContext()
+  const { filter_data, sortBy, categories, handleCategoryClick } = useFilterDataContext()
+  // List of categories
 
- 
+
+
+
   return (
     <>
       <section>
@@ -18,11 +21,16 @@ const ProductList = () => {
 
             <div className="brand">
               <h3>Category</h3>
-              <div className="brand-con" categoryCon={categoryCon}>
-                <div className="brand-name hover">All</div>
-                <div className="brand-name hover">Men's clothing</div>
-                <div className="brand-name hover" >Women's clothing</div>
-                <div className="brand-name hover">Electronics</div>
+              <div className="brand-con">
+                {categories.map((category, index) => (
+                  <div
+                    className="brand-name hover"
+                    key={index}
+                    onClick={() => handleCategoryClick(category)}
+                  >
+                    {category}
+                  </div>
+                ))}
               </div>
             </div>
 
