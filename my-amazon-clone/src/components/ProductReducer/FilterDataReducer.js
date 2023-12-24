@@ -37,41 +37,68 @@ const FilterDataReducer = (state, action) => {
                 sortData: action.payload,
             }
 
-            case "SORT_FILTER_CATEGORY":
-                let categoryData = [];
-                const lowerCasePayload = action.payload.toLowerCase(); // Convert payload to lowercase
-    
-                switch (lowerCasePayload) {
-                    case "all":
-                        categoryData = [...state.filter_data];
-                        break;
-                    case "men's clothing":
-                        categoryData = [...state.filter_data].filter(product =>
-                            product.category.toLowerCase() === "men's clothing"
-                        );
-                        break;
-                    case "women's clothing":
-                        categoryData = [...state.filter_data].filter(product =>
-                            product.category.toLowerCase() === "women's clothing"
-                        );
-                        break;
-                    case "electronics":
-                        categoryData = [...state.filter_data].filter(product =>
-                            product.category.toLowerCase() === "electronics"
-                        );
-                        break;
-                    default:
-                        categoryData = state.filter_data;
-                        break;
-                }
-    
-                return {
-                    ...state,
-                    filter_data: categoryData,
-    
-                };
-    
-    
+        case "GET_FILTER_CATEGORY":
+            let categoryData = [];
+            const lowerCasePayload = action.payload.toLowerCase(); // Convert payload to lowercase
+
+            switch (lowerCasePayload) {
+                case "all":
+                    categoryData = [...state.all_data];
+                    break;
+                case "men's clothing":
+                    categoryData = [...state.all_data].filter(product =>
+                        product.category.toLowerCase() === "men's clothing"
+                    );
+                    break;
+                case "women's clothing":
+                    categoryData = [...state.all_data].filter(product =>
+                        product.category.toLowerCase() === "women's clothing"
+                    );
+                    break;
+                case "electronics":
+                    categoryData = [...state.all_data].filter(product =>
+                        product.category.toLowerCase() === "electronics"
+                    );
+                    break;
+                default:
+                    categoryData = state.all_data;
+                    break;
+            }
+
+            return {
+                ...state,
+                filter_data: categoryData,
+                category_Data: action.payload
+            };
+
+        case "GET_FILTER_PRICE":
+            let priceData = [];
+
+            switch (action.payload) {
+                case "All":
+                    priceData = [...state.all_data]
+                    console.log('priceData', priceData)
+                    break;
+                case "Under ₹10":
+                    priceData = [...state.all_data].filter((data) => data.price <= 10)
+                    console.log(priceData)
+                    break;
+                case "₹100 - ₹500":
+                    priceData = [...state.all_data].filter((data) => data.price >= 100 && data.price <= 500)
+                    console.log(priceData)
+                    break;
+                case "₹500 - ₹1,000":
+                    priceData = [...state.all_data].filter((data) => data.price >= 500 && data.price <= 1000)
+                    console.log(priceData)
+                    break;
+                default:
+                    priceData = state.all_data;
+                    break;
+            }
+            return {
+                ...state,
+                filter_data: priceData
+            }
 
         default:
             return state

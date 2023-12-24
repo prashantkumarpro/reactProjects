@@ -11,7 +11,8 @@ export const FilterDataContext = createContext()
 const initialState = {
     filter_data: [],
     all_data: [],
-    sortData: 'A-Z'
+    sortData: null,
+    category_Data: null
 }
 
 
@@ -32,35 +33,39 @@ export const FilterDataProvider = ({ children }) => {
         dispatch({ type: "SORT_FILTER_DATA", payload: sortValue })
     }
 
-    // let categoryConElm;
-    // const categoryCon = () => {
-    //     const element = document.querySelector('.brand-con');
-    //     categoryConElm = element ? element.childNodes : null;
-    //     return categoryConElm
-    // }
 
-    // categoryConElm = categoryCon()
 
     const categories = ['All', "men's clothing", "women's clothing", 'electronics'];
 
     // Function to handle category click
     const handleCategoryClick = (category) => {
-        console.log(category);
-        dispatch({ type: "SORT_FILTER_CATEGORY", payload: category })
-
-
+        console.log('category :', category);
+        dispatch({ type: "GET_FILTER_CATEGORY", payload: category })
     };
 
+    const prices = ['All', "Under ₹10", "₹100 - ₹500", "₹500 - ₹1,000", "₹1,000 - ₹2,000", "Over ₹2,000"]
+
+    const handlePricesClick = (price) => {
+     
+        dispatch({ type: "GET_FILTER_PRICE", payload: price })
+    }
 
 
     useEffect(() => {
         dispatch({ type: 'FILTER_DATA', payload: products })
         console.log(products)
-
+        handlePricesClick()
     }, [products])
 
-
-    const contextValue = { ...state, sortBy, categories, handleCategoryClick }
+    // get context values
+    const contextValue = {
+        ...state,
+        sortBy,
+        categories,
+        handleCategoryClick,
+        prices,
+        handlePricesClick
+    }
 
 
     return (<  FilterDataContext.Provider value={contextValue}>

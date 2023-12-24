@@ -5,11 +5,15 @@ import { useFilterDataContext } from '../Context/FilterProductContext'
 
 
 const ProductList = () => {
-  const { filter_data, sortBy, categories, handleCategoryClick } = useFilterDataContext()
+  const {
+    filter_data,
+    sortBy,
+    categories,
+    handleCategoryClick,
+    prices,
+    handlePricesClick } = useFilterDataContext()
+
   // List of categories
-
-
-
 
   return (
     <>
@@ -36,12 +40,17 @@ const ProductList = () => {
 
             <div className="price-filter">
               <h3>Price</h3>
-              <div className="price hover">All</div>
-              <div className="price hover">Under ₹1,000</div>
-              <div className="price hover" >₹1,000 - ₹5,000</div>
-              <div className="price hover">₹5,000 - ₹10,000</div>
-              <div className="price hover" >₹10,000 - ₹20,000</div>
-              <div className="price hover">Over ₹20,000</div>
+              {prices.map((price, index) => (
+                <div className="price hover"
+                  key={index}
+                  onClick={() => handlePricesClick(price)}
+                >
+                  {price}
+
+                </div>
+              ))}
+
+
             </div>
 
 
@@ -53,7 +62,7 @@ const ProductList = () => {
               <div className="sort-con">
                 <label htmlFor="sortKey">sort by: </label>
                 <select id="sortKey" onChange={sortBy}>
-                  <option value="" selected disabled >select</option>
+                  <option value="" disabled >select</option>
                   <option value="A-Z">A-Z</option>
                   <option value="Z-A">Z-A</option>
                   <option value="price low to high"> price low to high</option>
@@ -78,7 +87,7 @@ const ProductList = () => {
             </ul>
           </div>
         </div>
-      </section>
+      </section >
     </>
   )
 }
