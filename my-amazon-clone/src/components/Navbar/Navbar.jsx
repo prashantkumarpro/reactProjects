@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const Navbar = ({ cart }) => {
 
+    
     const [query, setQuery] = useState('')
 
     const navigte = useNavigate()
@@ -13,10 +14,12 @@ const Navbar = ({ cart }) => {
     const submitHendlar = (e) => {
         e.preventDefault()
         navigte(`/Result/${query}`)
+        setQuery('')
     }
 
     const searchHendlar = () => {
         navigte(`/Result/${query}`)
+        setQuery('')
 
     }
 

@@ -55,6 +55,11 @@ const FilterDataReducer = (state, action) => {
                         product.category.toLowerCase() === "women's clothing"
                     );
                     break;
+                case "jewelery":
+                    categoryData = [...state.all_data].filter(product =>
+                        product.category.toLowerCase() === "jewelery"
+                    );
+                    break;
                 case "electronics":
                     categoryData = [...state.all_data].filter(product =>
                         product.category.toLowerCase() === "electronics"
@@ -81,15 +86,19 @@ const FilterDataReducer = (state, action) => {
                     break;
                 case "Under ₹10":
                     priceData = [...state.all_data].filter((data) => data.price <= 10)
-                    console.log(priceData)
+                    // console.log(priceData)
                     break;
                 case "₹100 - ₹500":
                     priceData = [...state.all_data].filter((data) => data.price >= 100 && data.price <= 500)
-                    console.log(priceData)
+                    // console.log(priceData)
                     break;
                 case "₹500 - ₹1,000":
                     priceData = [...state.all_data].filter((data) => data.price >= 500 && data.price <= 1000)
-                    console.log(priceData)
+                    // console.log(priceData)
+                    break;
+                case "Over ₹1,000":
+                    priceData = [...state.all_data].filter((data) => data.price > 1000)
+                    // console.log(priceData)
                     break;
                 default:
                     priceData = state.all_data;
@@ -100,6 +109,32 @@ const FilterDataReducer = (state, action) => {
                 filter_data: priceData
             }
 
+        case "UPDATE_FILTER_VALUE":
+            const { name, value } = action.payload;
+
+            return {
+                ...state,
+                filters: {
+                    ...state.filters,
+                    [name]: value,
+                }
+            }
+
+        case "FILTER_PRODUCT":
+
+            // let { filter_data } = state;
+            let {text} = state.filters
+            let filterProducts = [...state.filter_data]
+
+            if(text){
+                filterProducts = filterProducts.filter((currentElem) => currentElem.title.toLowerCase().includes(text))
+            }
+
+
+            return {
+                ...state,
+                filter_data: filterProducts
+            }
         default:
             return state
     }
