@@ -15,8 +15,10 @@ const Home = () => {
 
       {(isLoading) ? <h2 style={{
         textAlign: 'center',
-        margin: '20px'
+        margin: '20px',
+        zIndex: '999'
       }}> Loading</h2> : ''}
+      
       <div className="card-con">
         <div className="card">
           <h3 style={{ textAlign: 'center', fontSize: '18px', marginTop: '5px' }}>Men's clothing</h3>
