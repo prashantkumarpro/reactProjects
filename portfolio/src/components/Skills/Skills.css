@@ -183,9 +183,17 @@
         width: 60%;
     }
   }
-  @media (max-width-900) {
+  @media (max-width:900px) {
     .info p {
       font-size: 1rem;
       font-family: 'Times New Roman', Times, serif;
+  }
+  }
+
+  @media (max-width:500px) {
+    #Skills {
+ 
+      padding: 80px 4%;
+    
   }
   }

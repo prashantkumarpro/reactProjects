@@ -4,7 +4,7 @@ import gsap from 'gsap'
 
 const Skills = () => {
     const onMmove = (e) => {
-        console.log(`${e.pageX}px`)
+        // console.log(`${e.pageX}px`)
         gsap.to('.cursor', {
             x: `${e.pageX}px`,
             y: `${e.pageY}px`,
