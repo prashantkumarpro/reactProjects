@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import './App.css'
 import Header from './Components/Header/Header'
-import Home from './Components/Home/Home'
 import { fetchData } from './Components/data'
+import { Outlet } from 'react-router-dom'
+import { dataContext } from './context'
+
 
 
 function App() {
@@ -10,12 +11,12 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
+
   useEffect(() => {
     const getData = async () => {
       try {
         const result = await fetchData()
-        setData(result.results)
-        // console.log(result.results)
+        setData(result)
         setLoading(false)
       } catch (error) {
         setError(error)
@@ -29,10 +30,10 @@ function App() {
   if (error) return <p className='mt-5'>Error: {error.message}</p>;
 
   return (
-    <>
-      <Header data={data} setData={setData} />
-      <Home data={data} setData={setData} />
-    </>
+    <dataContext.Provider value={data}>
+      <Header />
+      <Outlet />
+    </dataContext.Provider>
   )
 }
 

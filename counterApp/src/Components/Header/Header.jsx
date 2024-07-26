@@ -1,15 +1,14 @@
 
+import { NavLink } from "react-router-dom";
 import { RiMoonClearFill, RiSearchLine } from "@remixicon/react";
 
-
-
-const Header = ({ data, setData }) => {
+const Header = () => {
     
 
     return (
         <header className="w-full h-20 bg-white dark:bg-black text-gray-600 flex items-center justify-between ">
-            <a href='#' className="text-xl font-semibold" to="/" >🎦Movies4U
-            </a>
+            <NavLink to="/" className="text-xl font-semibold" >🎦Movies4U
+            </NavLink>
             <div className='flex items-center relative'>
                 <RiSearchLine
                     size={20} // set custom `width` and `height`
@@ -28,9 +27,9 @@ const Header = ({ data, setData }) => {
                     className='cursor-pointer '
                 />
                 <ul className='flex items-center justify-between gap-5 font-semibold'>
-                    <li> <a href='#' to="/">HOME</a></li>
-                    <li> <a href='#' to="About" >TRENDING</a></li>
-                    <li><a href='#' to="Skills">BROWSE ALL</a></li>
+                    <li> <NavLink  to="/home">HOME</NavLink></li>
+                    <li> <NavLink to="/tranding"  >TRENDING</NavLink></li>
+                    <li><NavLink to="/browseall" >BROWSE ALL</NavLink></li>
                 </ul>
             </nav>
 
