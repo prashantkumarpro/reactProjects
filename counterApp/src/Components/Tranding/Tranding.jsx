@@ -1,12 +1,11 @@
-import React, { useContext } from 'react'
-import { dataContext } from '../../context'
+
 
 const Tranding = () => {
-  const data = useContext(dataContext)
+
 
   return (
-    <div>Tranding items: 
-      
+    <div className="py-5 text-xl">
+      <h1 className='mb-10'>Tranding items: </h1>
 
     </div>
 

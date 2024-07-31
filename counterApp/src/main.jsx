@@ -11,17 +11,19 @@ import Tranding from './Components/Tranding/Tranding.jsx';
 import ErrorPage from './Components/ErrorPaeg.jsx'
 import BrowseAll from './Components/BrowseAll/BrowseAll.jsx';
 import Home from './Components/Home/Home.jsx';
+import { Result } from './Components/Result.jsx';
+
 
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <App/>,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/home",
+        path: "/",
         element: <Home />
       },
       {
@@ -31,7 +33,13 @@ const router = createBrowserRouter([
       {
         path: "/browseall",
         element: <BrowseAll />
-      }
+      },
+    
+      {
+        path: "/result/:queryResult",
+        element: <Result />
+      },
+    
     ]
   },
 

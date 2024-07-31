@@ -26,13 +26,15 @@ function App() {
     getData()
   }, [])
 
-  if (loading) return <p className='mt-5'>Loading...</p>
-  if (error) return <p className='mt-5'>Error: {error.message}</p>;
+  if (loading) return <p className='center'>Loading...</p>
+  if (error) return <p className='center text-1'>Error: {error.message}</p>;
 
   return (
-    <dataContext.Provider value={data}>
+    <dataContext.Provider value={{ data }}>
       <Header />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </dataContext.Provider>
   )
 }
