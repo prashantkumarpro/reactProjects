@@ -1,7 +1,7 @@
 
 import { NavLink, useNavigate } from "react-router-dom";
-import { RiMoonFill, RiSearchLine, RiSunFill } from "@remixicon/react";
-import { useState } from "react";
+import { RiCloseLargeLine, RiMenu3Line, RiMoonLine, RiSearchLine, RiSunFill } from "@remixicon/react";
+import { useEffect, useState } from "react";
 
 
 
@@ -9,6 +9,7 @@ const Header = () => {
     const [theme, setTheme] = useState('dark')
     const [isDark, setIsDark] = useState(false)
     const [query, setQuery] = useState('')
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const navigate = useNavigate()
 
@@ -22,6 +23,11 @@ const Header = () => {
         setQuery(userInput)
     }
 
+    const handelSearchIcon = () => {
+        query != "" ? navigate(`/Result/${query}`) : `${alert('enter the value')}`
+        query.length > 0 ? setQuery('') : null
+    }
+
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
             setQuery('')
@@ -29,52 +35,85 @@ const Header = () => {
         }
     }
 
+    const handelMenu = () => {
+        setIsMenuOpen(!isMenuOpen)
+    }
+
+    useEffect(() => {
+        const navLinks = document.querySelectorAll('.nav_link li')
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                setIsMenuOpen(!isMenuOpen)
+            })
+        })
+    }, [isMenuOpen])
+
 
 
 
 
 
     return (
-        <header className={`${isDark ? 'header_dark' : ''} w-full h-20 bg-white  text-gray-600 flex items-center justify-between fixed top-0 left-0 z-50`}>
-            <NavLink to="/" className="text-xl font-semibold" >🎦Movies4U
-            </NavLink>
-            <div className='flex items-center relative'>
+        <header className={`${isDark ? 'header_dark' : ''} w-full h-20 bg-white  text-gray-600 flex items-center justify-between gap-10 fixed top-0 left-0 z-50`}>
+            <div className="left_part flex items-center gap-3  ">
+                <div
+                    className={`menu_btn ${isMenuOpen ? 'hidden' : 'block'}`}
+                    onClick={handelMenu}
+                >
+                    <RiMenu3Line />
+                </div>
+                <NavLink to="/" className="text-xl font-semibold" >🎦Movies4U
+                </NavLink>
+            </div>
+            <div className='search_box w-full flex-1 items-center relative'>
                 <RiSearchLine
                     size={20} // set custom `width` and `height`
                     color="rgb(75 85 99)" // set `fill` color
-                    className="my-icon absolute left-4 cursor-pointer" // add custom class name
+                    className="my-icon absolute left-4 top-2 cursor-pointer" // add custom class name
+                    onClick={handelSearchIcon}
                 />
                 <input type="text"
-                    className='px-10 py-2 rounded-full bg-[#E5E7EB] indent-2 focus:outline-none'
+                    className='search_input max-w-lg w-full  px-10 py-2 rounded-full bg-[#E5E7EB] indent-2 focus:outline-none'
                     placeholder='Search for movies or web series'
                     value={query}
                     onChange={handleQuery}
                     onKeyDown={handleKeyDown}
                 />
             </div>
+            <nav id="navbar" className='flex items-center gap-8'>
+                <NavLink to={`/search/$`}>
+                    <RiSearchLine
+                        size={20} // set custom `width` and `height`
+                        color="rgb(75 85 99)" // set `fill` color
+                        className="search_icon cursor-pointer hidden" // add custom class name
 
-
-            <nav id="navbar" className='flex items-center gap-5'>
+                    />
+                </NavLink>
                 <div className="theme cursor-pointer"
                     onClick={handleTheme}
                 >
                     <RiSunFill
                         size={24}
+                        className={isDark ? 'block' : 'hidden'}
+                    />
+
+                    <RiMoonLine
+                        size={20}
                         className={isDark ? 'hidden' : 'block'}
 
                     />
-                    <RiMoonFill
-                        size={20}
-                        style={{ backgroundColor: "", color: "white" }}
-                        className={isDark ? 'block' : 'hidden'}
-
-                    />
                 </div>
-                <ul className='flex items-center justify-between gap-5 font-semibold'>
+                <ul className={`nav_link ${isMenuOpen ? 'open' : ''} flex items-center justify-between gap-8 font-semibold`}>
                     <li> <NavLink to="/">HOME</NavLink></li>
                     <li> <NavLink to="/tranding"  >TRENDING</NavLink></li>
-                    <li><NavLink to="/browseall" >BROWSE ALL</NavLink></li>
+                    <li className="browseall"><NavLink to="/browseall" >BROWSE ALL</NavLink></li>
+                    <li className="hidden "> <NavLink>CLOSE</NavLink> </li>
+                    <div
+                        className={`nav_close hidden absolute top-6 z-10 left-64`}
+                        onClick={handelMenu}
+                    ><RiCloseLargeLine /></div>
                 </ul>
+
             </nav>
 
         </header >

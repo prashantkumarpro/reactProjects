@@ -12,6 +12,7 @@ import ErrorPage from './Components/ErrorPaeg.jsx'
 import BrowseAll from './Components/BrowseAll/BrowseAll.jsx';
 import Home from './Components/Home/Home.jsx';
 import { Result } from './Components/Result.jsx';
+import Search from './Components/Search.jsx';
 
 
 
@@ -19,7 +20,7 @@ import { Result } from './Components/Result.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -34,13 +35,16 @@ const router = createBrowserRouter([
         path: "/browseall",
         element: <BrowseAll />
       },
-    
+
       {
         path: "/result/:queryResult",
         element: <Result />
       },
-    
     ]
+  },
+  {
+    path: "/search/:queryResult",
+    element: <Search />
   },
 
 

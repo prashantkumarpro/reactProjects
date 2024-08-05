@@ -24,12 +24,12 @@ export const Result = () => {
   }, [queryResult])
 
   return (
-    <div className='mt-2 py-10 flex flex-col h-full w-full'>
-      <div className='w-full flex items-center gap-3 '>
+    <div className='result_page mt-2 py-10 flex flex-col h-full w-full'>
+      <div className='w-full flex items-center gap-3 mb-4'>
         <RiSearchLine
         size={20}
         color='#00A6ED'
-        className='mt-[2.8px]'
+        className='mt-[3px]'
         />
         <h1 className='text-2xl '>Search: {queryResult}</h1>
       </div>
