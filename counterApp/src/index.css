@@ -69,7 +69,9 @@ main {
 .suggestion_div {
     background-color: #E5E7EB;
 }
-
+.card{
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, .2);
+}
 
 
 @media (max-width:1024px) {
@@ -81,7 +83,8 @@ main {
     main {
         padding: 0 30px;
     }
-    .video_div{
+
+    .video_div {
         top: 15%;
     }
 }
@@ -157,6 +160,20 @@ main {
         display: block;
     }
 
+    .card_container {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card{
+        width: 450px;
+        height: 380px;
+       
+    }
+
     .result_page {
         margin-top: 80px;
     }
@@ -165,4 +182,5 @@ main {
         position: relative;
         top: 30%;
     }
+
 }

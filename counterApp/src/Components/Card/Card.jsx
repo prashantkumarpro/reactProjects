@@ -18,7 +18,7 @@ function Card() {
 
 
     return (
-        <div className='flex items-center justify-start flex-wrap gap-5 m-auto'>
+        <div className='card_container flex items-center justify-start flex-wrap gap-5 m-auto'>
             {data.list.length > 0 && data.list.map(({ id, thumbnail_url, title }) => (
 
                 < div key={id}
