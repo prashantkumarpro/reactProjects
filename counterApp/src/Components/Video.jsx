@@ -6,7 +6,9 @@ const Video = ({ mute = false }) => {
   const src = `https://geo.dailymotion.com/player.html?video=${videoId}&mute=${mute ? 'true' : 'false'}`;
 
   return (
-    <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
+    <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}
+        className='video_div'
+    >
       <iframe
         style={{
           width: '100%',

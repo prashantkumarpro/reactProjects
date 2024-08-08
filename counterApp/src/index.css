@@ -70,6 +70,8 @@ main {
     background-color: #E5E7EB;
 }
 
+
+
 @media (max-width:1024px) {
     header {
         padding: 0 30px;
@@ -78,6 +80,9 @@ main {
 
     main {
         padding: 0 30px;
+    }
+    .video_div{
+        top: 15%;
     }
 }
 
@@ -125,7 +130,7 @@ main {
 
     .nav_link .nav_close {
         margin-left: 0;
-       display: block;
+        display: block;
     }
 
     .browseall {
@@ -140,6 +145,9 @@ main {
 
 @media (max-width:600px) {
 
+    main {
+        padding: 0 10px;
+    }
 
     .search_box {
         display: none;
@@ -151,5 +159,10 @@ main {
 
     .result_page {
         margin-top: 80px;
+    }
+
+    .video_div {
+        position: relative;
+        top: 30%;
     }
 }
