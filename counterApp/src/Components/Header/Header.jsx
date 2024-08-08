@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 
 
 const Header = () => {
-    const [theme, setTheme] = useState('dark')
     const [isDark, setIsDark] = useState(false)
     const [query, setQuery] = useState('')
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -15,7 +14,7 @@ const Header = () => {
 
     const handleTheme = () => {
         setIsDark(!isDark)
-        document.body.classList.toggle(theme)
+        document.body.classList.toggle('dark')
     }
 
     const handleQuery = (e) => {
@@ -23,15 +22,17 @@ const Header = () => {
         setQuery(userInput)
     }
 
-    const handelSearchIcon = () => {
-        query != "" ? navigate(`/Result/${query}`) : `${alert('enter the value')}`
-        query.length > 0 ? setQuery('') : null
+    const handelSearch = () => {
+        if (query.trim() !== "") {
+            navigate(`/Result/${query}`)
+        } else {
+            alert("Please enter a search value")
+        }
     }
 
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
-            setQuery('')
-            navigate(`/Result/${query}`)
+            handelSearch()
         }
     }
 
@@ -41,11 +42,7 @@ const Header = () => {
 
     useEffect(() => {
         const navLinks = document.querySelectorAll('.nav_link li')
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                setIsMenuOpen(!isMenuOpen)
-            })
-        })
+        navLinks.forEach(link => link.addEventListener('click', handelMenu))
     }, [isMenuOpen])
 
 
@@ -70,7 +67,7 @@ const Header = () => {
                     size={20} // set custom `width` and `height`
                     color="rgb(75 85 99)" // set `fill` color
                     className="my-icon absolute left-4 top-2 cursor-pointer" // add custom class name
-                    onClick={handelSearchIcon}
+                    onClick={handelSearch}
                 />
                 <input type="text"
                     className='search_input max-w-lg w-full  px-10 py-2 rounded-full bg-[#E5E7EB] indent-2 focus:outline-none'

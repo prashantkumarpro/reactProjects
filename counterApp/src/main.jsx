@@ -13,6 +13,7 @@ import BrowseAll from './Components/BrowseAll/BrowseAll.jsx';
 import Home from './Components/Home/Home.jsx';
 import { Result } from './Components/Result.jsx';
 import Search from './Components/Search.jsx';
+import Video from './Components/Video.jsx';
 
 
 
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/result/:queryResult",
         element: <Result />
+      },
+      {
+        path: "/video/:videoId",
+        element: <Video />
       },
     ]
   },
