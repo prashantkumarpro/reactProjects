@@ -14,6 +14,7 @@ import Home from './Components/Home/Home.jsx';
 import { Result } from './Components/Result.jsx';
 import Search from './Components/Search.jsx';
 import Video from './Components/Video.jsx';
+import Chanle from './Components/Chanle.jsx';
 
 
 
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/video/:videoId",
         element: <Video />
+      },
+      {
+        path: "/tech",
+        element: <Chanle />
       },
     ]
   },

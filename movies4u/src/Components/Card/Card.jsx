@@ -39,7 +39,7 @@ function Card() {
                     <div className='p-2 mt-1 border-solid border-[1.2px] border-slate-300 text-center'>
                         <p></p>
                         <p>{`${title.length > 10 ? title.substring(0, 18) + '...' : title}`}</p>
-                        <p>Language</p>
+                   
                     </div>
                 </div>
             ))

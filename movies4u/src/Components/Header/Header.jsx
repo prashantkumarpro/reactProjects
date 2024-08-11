@@ -24,6 +24,7 @@ const Header = () => {
 
     const handelSearch = () => {
         if (query.trim() !== "") {
+            setQuery('')
             navigate(`/Result/${query}`)
         } else {
             alert("Please enter a search value")
@@ -102,7 +103,7 @@ const Header = () => {
                 </div>
                 <ul className={`nav_link ${isMenuOpen ? 'open' : ''} flex items-center justify-between gap-8 font-semibold`}>
                     <li> <NavLink to="/">HOME</NavLink></li>
-                    <li> <NavLink to="/tranding"  >TRENDING</NavLink></li>
+                    <li> <NavLink to="/tech"  >TECH</NavLink></li>
                     <li className="browseall"><NavLink to="/browseall" >BROWSE ALL</NavLink></li>
                     <li className="hidden "> <NavLink>CLOSE</NavLink> </li>
                     <div
